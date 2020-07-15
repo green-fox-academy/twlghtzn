@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 10px;
+    font-family: Courier, serif;   
+}
+
+body {
+    background-image: url(assets/topography.png);
+    padding-bottom: 30px;
+    width: 100%;
+}
+
+p {
+    font-family: Consolas, serif;
+}
+
+#header {
+    background:#333333;
+    height: 50px;
+    width: 100%;
+}
+
+#logo {
+    padding-top: 12px;
+    padding-left: 10%;
+    float: left;
+
+}
+
+#navbar {
+    padding-top: 15px;
+    text-transform: uppercase;
+    font-size: 15px;
+    width: 1200px;
+}
+
+#navbar-1st-link {
+    padding-left: 600px;
+}
+
+.navbar-link {
+    padding-left: 30px;
+}
+
+a, h3 {
+    color: #ff0099;
+}
+
+h1 {
+    padding-top: 100px;
+    padding-left: 10%;
+    font-size: 70px;
+    width: 800px;
+}
+
+h2 {
+    text-align: center;
+    padding-bottom: 30px;
+    font-size: 50px;
+}
+
+h3 {
+    padding-top: 30px;
+    padding-left: 10%;
+    font-size: 45px;
+    width: 800px;
+}
+
+h4 {
+    padding: 20px 0 10px 0; 
+    font-size: 30px;
+}
+
+#intro {
+    padding-top: 20px;
+    padding-left: 10%;
+    width: 1000px;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: justify;
+}
+
+#separator {
+    font-size: 20px;
+    padding: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#definitions {
+    padding-top: 20px;
+    padding-left: 10%;
+    width: 1000px;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: justify;
+}
+
+.one-definition {
+    padding-top: 20px;
+}
+
+#weyland-logo {
+    width: 200px;
+    padding-top: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    ;
+}
