@@ -8,12 +8,6 @@ public class SimpleReplace {
     // Please fix it for me!
     // Expected output: In a galaxy far far away
 
-    String result = replacer(example);
-    System.out.println(result);
-  }
-
-  public static String replacer(String a) {
-    String replaced = a.replace("dishwasher", "galaxy");
-    return replaced;
+    System.out.println(example.replace("dishwasher", "galaxy"));
   }
 }
