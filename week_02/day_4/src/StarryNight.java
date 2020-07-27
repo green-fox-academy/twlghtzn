@@ -16,14 +16,12 @@ public class StarryNight {
     graphics.fillRect(0, 0, 320, 320);
 
     for (int i = 0; i < 100; i++) {
-      Color randomLightGrey = new Color(173 +(int)Math.random() * 204, 164 + (int)Math.random() * 198, 183 + (int)Math.random() * 201);
+      Color randomLightGrey =
+          new Color(173 + (int) Math.random() * 204, 164 + (int) Math.random() * 198,
+              183 + (int) Math.random() * 201);
       graphics.setColor(randomLightGrey);
-      graphics.drawRect((int)(Math.random() * 320), (int)(Math.random() * 320), 2, 2);
+      graphics.drawRect((int) (Math.random() * 320), (int) (Math.random() * 320), 2, 2);
     }
-
-
-
-
   }
 
   // Don't touch the code below
