@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Ship {
   String name;
-  List<Pirate> crew;
+  List<pirates.Pirate> crew;
 
   public Ship(String name) {
     this.name = name;
@@ -19,12 +19,12 @@ public class Ship {
 
 
 
-  public static List<Pirate> fillShip(Ship a) {
-    List<Pirate> crew = new ArrayList<>();
-    crew.add(new Pirate("Béla", false));
-    crew.add(new Pirate("Elek", false));
-    crew.add(new Pirate("Gyuri", false));
-    crew.add(new Pirate("Jack", true));
+  public static List<pirates.Pirate> fillShip(Ship a) {
+    List<pirates.Pirate> crew = new ArrayList<>();
+    crew.add(new pirates.Pirate("Béla", false));
+    crew.add(new pirates.Pirate("Elek", false));
+    crew.add(new pirates.Pirate("Gyuri", false));
+    crew.add(new pirates.Pirate("Jack", true));
     a.crew = crew;
     return crew;
   }
@@ -66,7 +66,7 @@ public class Ship {
 
   public static void main(String[] args) {
     Ship blackPearl = new Ship("Black Pearl");
-    List<Pirate> blackPearlCrew = fillShip(blackPearl);
+    List<pirates.Pirate> blackPearlCrew = fillShip(blackPearl);
 
     blackPearlCrew.get(0).drinkSomeRum(blackPearlCrew.get(0));
     blackPearlCrew.get(3).drinkSomeRum(blackPearlCrew.get(3));
