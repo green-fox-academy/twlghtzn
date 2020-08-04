@@ -29,20 +29,20 @@ public class Carrier {
       for (Aircraft aircraft : aircrafts) {
         if (aircraft.isPriority) {
           if ((aircraft.maxAmmo - aircraft.ammunition) < this.ammoStore) {
-            aircraft.refill(this.ammoStore);
             this.ammoStore = aircraft.refill(this.ammoStore);
           }
         }
       }
-    } else if (this.ammoStore > 0){
-      for(Aircraft aircraft: aircrafts) {
-        if((aircraft.maxAmmo - aircraft.ammunition) < this.ammoStore){
+      for (Aircraft aircraft : aircrafts) {
+        if ((aircraft.maxAmmo - aircraft.ammunition) < this.ammoStore) {
           this.ammoStore = aircraft.refill(this.ammoStore);
-        } else {
-          break;
         }
       }
-    }
+    } else {
+      for(Aircraft aircraft: aircrafts) {
+          this.ammoStore = aircraft.refill(this.ammoStore);
+        }
+      }
     System.out.println(this.name + " refills aircrafts.");
     System.out.println("-------------------------------------------------------------------");
   }

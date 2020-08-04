@@ -2,7 +2,7 @@ package aircraftcarrier;
 
 public class Main {
   public static void main(String[] args) {
-    Carrier heliCarrier = new Carrier("Helicarrier",1000, 5000 );
+    Carrier heliCarrier = new Carrier("Helicarrier",150, 5000 );
 
     F16 f1601 = new F16();
     F16 f1602 = new F16();
@@ -17,11 +17,12 @@ public class Main {
     heliCarrier.addAircraft(f3502);
     heliCarrier.addAircraft(f3503);
     heliCarrier.addAircraft(f3504);
+    heliCarrier.getStatus();
 
     heliCarrier.fillAircrafts();
     heliCarrier.getStatus();
 
-    Carrier darkLily = new Carrier("Dark Lily",1000, 5000);
+    Carrier darkLily = new Carrier("Dark Lily",1000, 10000);
 
     F35 f3511 = new F35();
     F35 f3512 = new F35();
@@ -36,6 +37,7 @@ public class Main {
     darkLily.addAircraft(f3514);
     darkLily.addAircraft(f3515);
     darkLily.addAircraft(f3516);
+    darkLily.getStatus();
 
     darkLily.fillAircrafts();
     darkLily.getStatus();
@@ -44,15 +46,21 @@ public class Main {
     heliCarrier.getStatus();
     darkLily.getStatus();
 
+    heliCarrier.fillAircrafts();
+    heliCarrier.getStatus();
+    heliCarrier.fight(darkLily);
+    heliCarrier.getStatus();
+    darkLily.getStatus();
+
+    heliCarrier.fillAircrafts();
+    heliCarrier.getStatus();
+
     darkLily.fight(heliCarrier);
     heliCarrier.getStatus();
     darkLily.getStatus();
 
     darkLily.fillAircrafts();
-    heliCarrier.fillAircrafts();
-    heliCarrier.getStatus();
     darkLily.getStatus();
-
     darkLily.fight(heliCarrier);
     heliCarrier.getStatus();
     darkLily.getStatus();
