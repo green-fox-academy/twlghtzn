@@ -1,8 +1,5 @@
-import greenfox.Cohort;
-import greenfox.Mentor;
-import greenfox.Person;
-import greenfox.Sponsor;
-import greenfox.Student;
+package greenfox;
+
 import java.util.ArrayList;
 
 public class Main {
