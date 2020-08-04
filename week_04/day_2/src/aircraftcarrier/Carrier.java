@@ -43,6 +43,8 @@ public class Carrier {
         }
       }
     }
+    System.out.println(this.name + " refills aircrafts.");
+    System.out.println("-------------------------------------------------------------------");
   }
 
   public void fight(Carrier anotherCarrier) {
@@ -50,6 +52,8 @@ public class Carrier {
       System.out.println(this.name + " is dead, can't fight.");
       System.out.println("-------------------------------------------------------------------");
     } else {
+      System.out.println(this.name + " fights " + anotherCarrier.name + ".");
+      System.out.println("-------------------------------------------------------------------");
       int totalDamage = 0;
       for (Aircraft aircraft : aircrafts) {
         totalDamage += aircraft.fight();
