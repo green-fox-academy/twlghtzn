@@ -46,11 +46,16 @@ public class Carrier {
   }
 
   public void fight(Carrier anotherCarrier) {
-    int totalDamage = 0;
-    for (Aircraft aircraft: aircrafts) {
-      totalDamage += aircraft.fight();
+    if (this.healthPoints <= 0) {
+      System.out.println(this.name + " is dead, can't fight.");
+      System.out.println("-------------------------------------------------------------------");
+    } else {
+      int totalDamage = 0;
+      for (Aircraft aircraft : aircrafts) {
+        totalDamage += aircraft.fight();
+      }
+      anotherCarrier.healthPoints -= totalDamage;
     }
-    anotherCarrier.healthPoints -= totalDamage;
   }
 
   public int totalDamage() {
