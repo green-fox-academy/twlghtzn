@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Carrier {
+  String name;
   List<Aircraft> aircrafts;
   int ammoStore;
   int healthPoints;
 
-  public Carrier(int ammoStore, int healthPoints) {
+  public Carrier(String name, int ammoStore, int healthPoints) {
+    this.name = name;
     this.ammoStore = ammoStore;
     this.healthPoints = healthPoints;
     this.aircrafts = new ArrayList<>();
@@ -35,7 +37,6 @@ public class Carrier {
     } else if (this.ammoStore > 0){
       for(Aircraft aircraft: aircrafts) {
         if((aircraft.maxAmmo - aircraft.ammunition) < this.ammoStore){
-          aircraft.refill(this.ammoStore);
           this.ammoStore = aircraft.refill(this.ammoStore);
         } else {
           break;
@@ -61,7 +62,8 @@ public class Carrier {
   }
 
   public void getStatus() {
-    if (this.healthPoints == 0) {
+    System.out.println(this.name);
+    if (this.healthPoints <= 0) {
       System.out.println("It's dead Jim :(");
     } else {
       System.out.println("HP: " + this.healthPoints + ", Aircraft count: " + this.aircrafts.size() +
@@ -71,5 +73,6 @@ public class Carrier {
         System.out.println(aircraft.getStatus());
       }
     }
+    System.out.println("-------------------------------------------------------------------");
   }
 }
