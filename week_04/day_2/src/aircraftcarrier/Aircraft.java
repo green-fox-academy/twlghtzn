@@ -27,7 +27,7 @@ public class Aircraft {
   }
 
   public String getStatus() {
-    String status = "Type " + this.getType() + ", Ammo" + this.ammunition + ", Base Damage: " +
+    String status = "Type " + this.getType() + ", Ammo: " + this.ammunition + ", Base Damage: " +
         this.baseDamage + ", All Damage: " +
         (this.baseDamage * this.ammunition);
     return status;
