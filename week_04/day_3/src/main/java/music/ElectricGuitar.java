@@ -14,10 +14,11 @@ public class ElectricGuitar extends StringedInstrument {
 
   @Override
   public void sound() {
+    System.out.println(getClass().getSimpleName() + ", a " + numberOfStrings + "-stringed instrument that goes " + sound);
   }
 
   @Override
   public void play() {
-    System.out.println(getClass().getSimpleName() + ", a " + numberOfStrings + "-stringed instrument that goes " + sound);
+    sound();
   }
 }

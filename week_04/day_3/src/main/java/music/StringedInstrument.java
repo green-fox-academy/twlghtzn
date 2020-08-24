@@ -4,6 +4,7 @@ public abstract class StringedInstrument extends Instrument {
   int numberOfStrings;
   String sound;
 
-  public void sound() {
-  }
+  public abstract void sound();
+
+  public abstract void play();
 }
