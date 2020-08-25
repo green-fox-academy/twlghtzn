@@ -1,0 +1,51 @@
+body {
+    background: deepskyblue;
+}
+
+table {
+    border: 1px solid deepskyblue;
+    width: 700px;
+    border-collapse: separate;
+    background: aliceblue;
+    border-left: 0px;
+    border-radius: 10px;
+    border-spacing: 0px;
+}
+
+th {
+    text-align: left;
+    border-top: none;
+    border-bottom: 3px solid gray;
+    font-weight: lighter;
+    background: black;
+    color: aliceblue;
+    font-size: 40px;
+    border-collapse: separate;
+}
+
+th, td {
+    padding: 20px 20px 20px 25px;
+    font-family: "Century Gothic", sans-serif;
+}
+
+tr:nth-child(even) {
+    background: lightgray;
+    border: 0;
+}
+
+td:nth-child(even), th:nth-child(even) {
+    border-left: 1px solid gray;
+}
+
+td {
+    font-size: 30px;
+    border-top: 1px solid gray;
+}
+
+th:first-child {
+    border-top-left-radius: 10px;
+}
+
+th:last-child {
+    border-top-right-radius: 10px;
+}

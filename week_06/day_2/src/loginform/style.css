@@ -1,0 +1,45 @@
+body {
+    background: lightgray;
+}
+
+.container {
+    width: 400px;
+    height: 400px;
+    margin-top: 100px;
+    margin-left: 200px;
+    background: white;
+}
+
+#account {
+    padding: 50px 30px;
+    border: 0px;
+    font-family: Tahoma, sans-serif;
+}
+
+label {
+    display: block;
+    padding: 10px 30px;
+    font-family: Tahoma, sans-serif;
+}
+
+input {
+    margin: 0 0 10px 30px;
+    padding: 10px;
+    font-family: Tahoma, sans-serif;
+}
+
+button {
+    display: block;
+    margin: 10px 0 0 30px;
+    background: black;
+    width: 100px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 20px;
+    font-family: Tahoma, sans-serif;
+    color: white;
+}
+
+#forgot {
+    margin: 2px 0 5px 100px;
+}
