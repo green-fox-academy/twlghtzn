@@ -12,6 +12,7 @@ public class Sum {
     int totalSum = sum(start, end);
     System.out.println(totalSum);
   }
+
   public static int sum(int a, int b) {
     int totalSum = 0;
     for (int i = 0; i < b + 1; i++) {

@@ -14,7 +14,9 @@ public class Violin extends StringedInstrument {
 
   @Override
   public void sound() {
-    System.out.println(getClass().getSimpleName() + ", a " + numberOfStrings + "-stringed instrument that goes " + sound);
+    System.out.println(
+        getClass().getSimpleName() + ", a " + numberOfStrings + "-stringed instrument that goes " +
+            sound);
   }
 
   @Override

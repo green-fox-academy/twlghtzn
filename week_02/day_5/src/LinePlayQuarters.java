@@ -2,6 +2,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
+
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class LinePlayQuarters {
@@ -18,48 +19,46 @@ public class LinePlayQuarters {
     int zz = 20;
 
 
-      for (int k = 0; k < 16; k++) {
-        for (int j = 0; j < 16; j++) {
-          int a = x;
-          int b = y;
-          int c = w;
-          int d = z;
-          for (int i = 0; i < 13; i++) {
-            graphics.setColor(Color.MAGENTA);
-            graphics.drawLine(a, b, c, d);
-            a += 1;
-            d += 1;
-          }
-          int e = xx;
-          int f = yy;
-          int g = ww;
-          int h = zz;
-          for (int i = 0; i < 13; i++) {
-            graphics.setColor(Color.GREEN);
-            graphics.drawLine(e, f, g, h);
-            f += 1;
-            g += 1;
-          }
-          x += 20;
-          w += 20;
-          xx += 20;
-          ww += 20;
+    for (int k = 0; k < 16; k++) {
+      for (int j = 0; j < 16; j++) {
+        int a = x;
+        int b = y;
+        int c = w;
+        int d = z;
+        for (int i = 0; i < 13; i++) {
+          graphics.setColor(Color.MAGENTA);
+          graphics.drawLine(a, b, c, d);
+          a += 1;
+          d += 1;
         }
-        x = 0;
-        y += 20;
-        w = 20;
-        z += 20;
-        xx = 0;
-        yy += 20;
-        ww = 1;
-        zz += 20;
+        int e = xx;
+        int f = yy;
+        int g = ww;
+        int h = zz;
+        for (int i = 0; i < 13; i++) {
+          graphics.setColor(Color.GREEN);
+          graphics.drawLine(e, f, g, h);
+          f += 1;
+          g += 1;
+        }
+        x += 20;
+        w += 20;
+        xx += 20;
+        ww += 20;
       }
-
-
-
+      x = 0;
+      y += 20;
+      w = 20;
+      z += 20;
+      xx = 0;
+      yy += 20;
+      ww = 1;
+      zz += 20;
+    }
 
 
   }
+
   static int WIDTH = 320;
   static int HEIGHT = 320;
 

@@ -2,6 +2,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
+
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class HorizontalLines {
@@ -18,7 +19,6 @@ public class HorizontalLines {
     for (int i = 0; i < 3; i++) {
       graphics.drawLine(as[i], bs[i], (as[i] + 50), bs[i]);
     }
-
 
 
   }

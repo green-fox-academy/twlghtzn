@@ -14,6 +14,7 @@ public class AppendAFunc {
     System.out.println(typoFixed);
 
   }
+
   public static String appendAFunc(String a) {
     String correctString = a + "a";
     return correctString;

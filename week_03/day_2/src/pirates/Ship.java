@@ -16,9 +16,6 @@ public class Ship {
   }
 
 
-
-
-
   public static List<pirates.Pirate> fillShip(Ship a) {
     List<pirates.Pirate> crew = new ArrayList<>();
     crew.add(new pirates.Pirate("Béla", false));
@@ -37,11 +34,11 @@ public class Ship {
                 " -- is dead");
       } else if (!a.crew.get(i).isCaptain && a.crew.get(i).passedOut) {
         System.out.println(
-          a.name + "'s " + a.crew.get(i).name + " pirate Rums: " + a.crew.get(i).rumsCount +
-              " -- passed out");
+            a.name + "'s " + a.crew.get(i).name + " pirate Rums: " + a.crew.get(i).rumsCount +
+                " -- passed out");
       } else if (!a.crew.get(i).isCaptain) {
-      System.out.println(
-          a.name + "'s " + a.crew.get(i).name + " pirate Rums: " + a.crew.get(i).rumsCount);
+        System.out.println(
+            a.name + "'s " + a.crew.get(i).name + " pirate Rums: " + a.crew.get(i).rumsCount);
       } else if (a.crew.get(i).isCaptain && a.crew.get(i).isDead) {
         System.out.println(
             a.name + "'s captain: " + a.crew.get(i).name + " Rums: " + a.crew.get(i).rumsCount +

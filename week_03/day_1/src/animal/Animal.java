@@ -1,8 +1,8 @@
 package animal;
 
 public class Animal {
-    int hunger = 50;
-    int thirst = 50;
+  int hunger = 50;
+  int thirst = 50;
 
   public static void isEating(Animal a) {
     a.hunger--;

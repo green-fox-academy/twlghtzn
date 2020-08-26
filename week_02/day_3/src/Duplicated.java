@@ -15,7 +15,7 @@ public class Duplicated {
   public static void decrypt(Path a, Path b) {
     try {
       String contentA = String.valueOf(Files.readAllLines(a));
-      for (int i = 0; i < contentA.length() -1; i++) {
+      for (int i = 0; i < contentA.length() - 1; i++) {
         if (contentA.charAt(i) != contentA.charAt(i + 1)) {
           String charAtI = String.valueOf(contentA.charAt(i));
           byte[] iToByte = charAtI.getBytes();

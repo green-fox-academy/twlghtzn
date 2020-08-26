@@ -16,12 +16,12 @@ public class Garden {
 
   public void watering(float wateringAmount) {
     int needsWaterCounter = 0;
-    for (Plant plant: plants) {
+    for (Plant plant : plants) {
       if (plant.needsWater) {
         needsWaterCounter++;
       }
     }
-    for (Plant plant: plants) {
+    for (Plant plant : plants) {
       if (plant.needsWater) {
         plant.waterAmount += (wateringAmount / needsWaterCounter) * plant.wateringEfficiency;
         plant.needsWater = (plant.waterAmount < 5);
@@ -31,11 +31,13 @@ public class Garden {
   }
 
   public void gardenInfo() {
-    for (Plant plant: plants) {
+    for (Plant plant : plants) {
       if (plant.needsWater) {
-        System.out.println("The " + plant.color + " " + plant.getClass().getSimpleName() + " needs water.");
+        System.out.println(
+            "The " + plant.color + " " + plant.getClass().getSimpleName() + " needs water.");
       } else {
-        System.out.println("The " + plant.color + " " + plant.getClass().getSimpleName() + " doesn't need water.");
+        System.out.println(
+            "The " + plant.color + " " + plant.getClass().getSimpleName() + " doesn't need water.");
       }
     }
   }

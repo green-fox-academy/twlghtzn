@@ -32,8 +32,11 @@ public class Main {
       System.out.println("No effective pokemon found");
     }
   }
-  private static Optional<Pokemon> getFirstEffectivePokemon(List<Pokemon> pokemonOfAsh, Pokemon wildPokemon) {
-    return pokemonOfAsh.stream().filter(pokemon -> pokemon.isEffectiveAgainst(wildPokemon)).findFirst();
+
+  private static Optional<Pokemon> getFirstEffectivePokemon(List<Pokemon> pokemonOfAsh,
+                                                            Pokemon wildPokemon) {
+    return pokemonOfAsh.stream().filter(pokemon -> pokemon.isEffectiveAgainst(wildPokemon))
+        .findFirst();
   }
 
   private static List<Pokemon> initializePokemons() {
@@ -47,6 +50,7 @@ public class Main {
 
     return pokemon;
   }
+
   private static Pokemon findEffectivePokemon(List<Pokemon> pokemons, Pokemon wildPokemon) {
     for (Pokemon pokemon : pokemons) {
       if (pokemon.isEffectiveAgainst(wildPokemon)) {

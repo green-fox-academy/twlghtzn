@@ -24,11 +24,11 @@ public class SubInt {
     c = new int[counter];
     int indicesCounter = 0;
     for (int i = 0; i < anArray.length; i++) {
-        if (Integer.toString(anArray[i]).contains(b)) {
-          c[indicesCounter] = i;
-          indicesCounter++;
-        }
+      if (Integer.toString(anArray[i]).contains(b)) {
+        c[indicesCounter] = i;
+        indicesCounter++;
       }
+    }
     return c;
   }
 }

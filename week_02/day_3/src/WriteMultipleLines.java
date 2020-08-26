@@ -19,6 +19,7 @@ public class WriteMultipleLines {
     int number = 3;
     fileManipulator(path, word, number);
   }
+
   public static void fileManipulator(String a, String b, int c) {
     try {
       Path path = Paths.get(a);

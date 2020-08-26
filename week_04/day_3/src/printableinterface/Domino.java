@@ -2,7 +2,7 @@ package printableinterface;
 
 import java.util.List;
 
-public class Domino implements Printable{
+public class Domino implements Printable {
   int sideA;
   int sideB;
 

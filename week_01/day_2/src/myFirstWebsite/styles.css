@@ -5,7 +5,7 @@
 
 html {
     font-size: 10px;
-    font-family: Courier, serif;   
+    font-family: Courier, serif;
 }
 
 body {
@@ -19,7 +19,7 @@ p {
 }
 
 #header {
-    background:#333333;
+    background: #333333;
     height: 50px;
     width: 100%;
 }
@@ -71,7 +71,7 @@ h3 {
 }
 
 h4 {
-    padding: 20px 0 10px 0; 
+    padding: 20px 0 10px 0;
     font-size: 30px;
 }
 
@@ -109,6 +109,5 @@ h4 {
     padding-top: 40px;
     display: block;
     margin-left: auto;
-    margin-right: auto;
-    ;
+    margin-right: auto;;
 }

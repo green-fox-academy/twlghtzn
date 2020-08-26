@@ -2,6 +2,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
+
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Triangels {
@@ -39,7 +40,8 @@ public class Triangels {
       w -= 7;
       z += 10;
     }
-}
+  }
+
   static int WIDTH = 320;
   static int HEIGHT = 320;
 
@@ -54,12 +56,12 @@ public class Triangels {
     jFrame.pack();
   }
 
-static class ImagePanel extends JPanel {
-  @Override
-  protected void paintComponent(Graphics graphics) {
-    super.paintComponent(graphics);
-    mainDraw(graphics);
+  static class ImagePanel extends JPanel {
+    @Override
+    protected void paintComponent(Graphics graphics) {
+      super.paintComponent(graphics);
+      mainDraw(graphics);
+    }
   }
-}
 }
 

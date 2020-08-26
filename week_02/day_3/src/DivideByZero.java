@@ -13,6 +13,7 @@ public class DivideByZero {
       System.out.println("fail");
     }
   }
+
   public static float divideTen(int a) {
     float result = 10 / a;
     return result;

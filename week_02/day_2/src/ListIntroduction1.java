@@ -39,7 +39,7 @@ public class ListIntroduction1 {
     // Iterate through the list in a reversed order and print out each name
     //Amanda
     //William
-    for (int i = introduction.size() -1; i > -1; i--) {
+    for (int i = introduction.size() - 1; i > -1; i--) {
       System.out.println(introduction.get(i));
     }
     // Remove all elements

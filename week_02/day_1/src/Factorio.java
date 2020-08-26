@@ -14,7 +14,8 @@ public class Factorio {
     int factorial = factorio(toFactorial);
     System.out.println(factorial);
   }
-    public static int factorio(int a) {
+
+  public static int factorio(int a) {
     int[] factorialArray = new int[a];
     for (int i = a - 1; i > -1; i--) {
       factorialArray[i] = a - i;

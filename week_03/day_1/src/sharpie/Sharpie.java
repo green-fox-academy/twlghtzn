@@ -9,9 +9,11 @@ public class Sharpie {
     this.color = color;
     this.width = width;
     this.inkAmount = 100;
-  };
+  }
 
-  public void inUse () {
+  ;
+
+  public void inUse() {
     this.inkAmount -= 10;
   }
 

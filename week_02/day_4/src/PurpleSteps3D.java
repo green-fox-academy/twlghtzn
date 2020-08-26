@@ -2,6 +2,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
+
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class PurpleSteps3D {
@@ -13,7 +14,7 @@ public class PurpleSteps3D {
     int y = 10;
     int w = 10;
     int h = 10;
-    Color MEDIUMORCHID = new Color(177,69,243);
+    Color MEDIUMORCHID = new Color(177, 69, 243);
 
     for (int i = 0; i < 6; i++) {
       graphics.setColor(MEDIUMORCHID);
@@ -23,8 +24,6 @@ public class PurpleSteps3D {
       w += 10;
       h += 10;
     }
-
-
 
 
   }

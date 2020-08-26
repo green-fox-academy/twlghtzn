@@ -2,6 +2,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
+
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class RainbowBoxFunction {
@@ -14,7 +15,8 @@ public class RainbowBoxFunction {
     Color INDIGO = new Color(75, 0, 130);
     Color VIOLET = new Color(93, 51, 93);
     int[] sizes = {320, 270, 220, 170, 120, 70, 20};
-    Color[] rectColors = {Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, INDIGO, VIOLET};
+    Color[] rectColors =
+        {Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, INDIGO, VIOLET};
 
     for (int i = 0; i < 7; i++) {
       graphics.setColor(rectColors[i]);

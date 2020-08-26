@@ -2,7 +2,7 @@ package aircraftcarrier;
 
 public class Main {
   public static void main(String[] args) {
-    Carrier heliCarrier = new Carrier("Helicarrier",150, 5000 );
+    Carrier heliCarrier = new Carrier("Helicarrier", 150, 5000);
 
     F16 f1601 = new F16();
     F16 f1602 = new F16();
@@ -22,7 +22,7 @@ public class Main {
     heliCarrier.fillAircrafts();
     heliCarrier.getStatus();
 
-    Carrier darkLily = new Carrier("Dark Lily",1000, 10000);
+    Carrier darkLily = new Carrier("Dark Lily", 1000, 10000);
 
     F35 f3511 = new F35();
     F35 f3512 = new F35();

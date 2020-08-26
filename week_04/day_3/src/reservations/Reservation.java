@@ -21,7 +21,7 @@ public class Reservation implements Reservationy {
       reservations[i][0] = getCodeBooking();
     }
     for (int i = 0; i < reservationsCount; i++) {
-        reservations[i][1] = getDowBooking();
+      reservations[i][1] = getDowBooking();
     }
     return reservations;
   }

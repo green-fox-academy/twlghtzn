@@ -2,6 +2,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
+
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class PurpleSteps {
@@ -11,7 +12,7 @@ public class PurpleSteps {
 
     int x = 10;
     int y = 10;
-    Color MEDIUMORCHID = new Color(177,69,243);
+    Color MEDIUMORCHID = new Color(177, 69, 243);
     for (int i = 0; i < 20; i++) {
       graphics.setColor(Color.BLACK);
       graphics.drawRect(x, y, 10, 10);
@@ -20,7 +21,6 @@ public class PurpleSteps {
       x += 10;
       y += 10;
     }
-
 
 
   }

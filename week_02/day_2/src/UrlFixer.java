@@ -9,6 +9,7 @@ public class UrlFixer {
     System.out.println(addChar(url, ':', 5).replace("bot", "odd"));
 
   }
+
   public static String addChar(String str, char ch, int position) {
     return str.substring(0, position) + ch + str.substring(position);
   }

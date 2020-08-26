@@ -2,11 +2,12 @@ import javax.swing.*;
 
 import java.awt.*;
 
+
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class CenterBoxFunction {
 
-  public static void mainDraw(Graphics graphics){
+  public static void mainDraw(Graphics graphics) {
     // create a function that draws one square and takes 2 parameters:
     // the square size and the graphics
     // and draws a square of that size to the center of the canvas.
@@ -15,7 +16,7 @@ public class CenterBoxFunction {
 
     int[] sizes = {50, 30, 60};
 
-    for (int i =0; i < 3;i ++) {
+    for (int i = 0; i < 3; i++) {
       graphics.drawRect((160 - (sizes[i] / 2)), (160 - (sizes[i] / 2)), sizes[i], sizes[i]);
     }
   }

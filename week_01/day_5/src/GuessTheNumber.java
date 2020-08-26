@@ -8,7 +8,7 @@ public class GuessTheNumber {
     System.out.println("Your guess?");
     int guess = scanner.nextInt();
 
-    while (numberToGuess != guess)
+    while (numberToGuess != guess) {
       if (numberToGuess > guess) {
         System.out.println("The stored number is higher");
         System.out.println("Your guess?");
@@ -18,10 +18,11 @@ public class GuessTheNumber {
         System.out.println("Your guess?");
         guess = scanner.nextInt();
       }
+    }
 
-      if (numberToGuess == guess) {
-        System.out.println("You found the number: " + numberToGuess);
-      }
+    if (numberToGuess == guess) {
+      System.out.println("You found the number: " + numberToGuess);
+    }
   }
 }
 

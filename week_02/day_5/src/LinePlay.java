@@ -2,6 +2,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
+
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class LinePlay {
@@ -31,6 +32,7 @@ public class LinePlay {
     }
 
   }
+
   static int WIDTH = 320;
   static int HEIGHT = 320;
 

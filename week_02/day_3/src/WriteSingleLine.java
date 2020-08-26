@@ -13,6 +13,7 @@ public class WriteSingleLine {
     String myName = "Bor Orsolya";
     fileManipulator(myName);
   }
+
   public static void fileManipulator(String a) {
     try {
       Path filePath = Paths.get("my-file.txt");

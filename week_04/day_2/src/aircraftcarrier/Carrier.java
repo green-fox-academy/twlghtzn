@@ -22,7 +22,7 @@ public class Carrier {
 
   public void fillAircrafts() {
     int neededAmmo = 0;
-    for (Aircraft aircraft: aircrafts) {
+    for (Aircraft aircraft : aircrafts) {
       neededAmmo += (aircraft.maxAmmo - aircraft.ammunition);
     }
     if (neededAmmo > this.ammoStore) {
@@ -39,10 +39,10 @@ public class Carrier {
         }
       }
     } else {
-      for(Aircraft aircraft: aircrafts) {
-          this.ammoStore = aircraft.refill(this.ammoStore);
-        }
+      for (Aircraft aircraft : aircrafts) {
+        this.ammoStore = aircraft.refill(this.ammoStore);
       }
+    }
     System.out.println(this.name + " refills aircrafts.");
     System.out.println("-------------------------------------------------------------------");
   }
@@ -54,21 +54,21 @@ public class Carrier {
     } else {
       System.out.println(this.name + " fights " + anotherCarrier.name + ".");
       System.out.println("-------------------------------------------------------------------");
-        for (Aircraft aircraft : aircrafts) {
-          if (aircraft.baseDamage * aircraft.ammunition <= anotherCarrier.healthPoints) {
-            anotherCarrier.healthPoints -= aircraft.fight();
-          } else {
-            anotherCarrier.healthPoints -= aircraft.fight();
-            break;
-          }
+      for (Aircraft aircraft : aircrafts) {
+        if (aircraft.baseDamage * aircraft.ammunition <= anotherCarrier.healthPoints) {
+          anotherCarrier.healthPoints -= aircraft.fight();
+        } else {
+          anotherCarrier.healthPoints -= aircraft.fight();
+          break;
         }
+      }
     }
   }
 
 
   public int totalDamage() {
     int totalDamage = 0;
-    for (Aircraft aircraft: aircrafts) {
+    for (Aircraft aircraft : aircrafts) {
       totalDamage += aircraft.ammunition * aircraft.baseDamage;
     }
     return totalDamage;

@@ -13,6 +13,7 @@ public class CountLines {
     String myFile = "my-file.txt";
     System.out.println(lineCounter(myFile));
   }
+
   public static long lineCounter(String fileName) {
     long linesCount = 0;
     try {

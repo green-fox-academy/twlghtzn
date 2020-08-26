@@ -37,7 +37,7 @@ h2 {
     font-weight: bold;
 }
 
-#shorter{
+#shorter {
     width: 200px;
 }
 
@@ -46,7 +46,7 @@ h2 {
     border: 1px solid black;
     text-align: justify;
     color: grey;
-    }
+}
 
 #submit {
     margin: 10px 0 15px 0;

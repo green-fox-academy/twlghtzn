@@ -28,6 +28,7 @@ public class Pirate {
       a.passedOut = true;
     }
   }
+
   public static void brawl(Pirate a, Pirate b) {
     System.out.println(a.name + " has a brawl with " + b.name);
     if (a.isDead || a.passedOut || b.isDead || b.passedOut) {

@@ -13,6 +13,7 @@ public class CopyFile {
     String file2 = "my-otherfile.txt";
     System.out.println(contentCopier(file1, file2));
   }
+
   public static boolean contentCopier(String a, String b) {
     try {
       Path path1 = Paths.get(a);

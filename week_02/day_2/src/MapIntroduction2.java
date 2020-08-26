@@ -11,7 +11,8 @@ public class MapIntroduction2 {
     //978-1-60309-444-3	Red Panda and Moon Bear
     //978-1-60309-461-0	The Lab
     Map<String, String> map = new HashMap<>();
-    String[] keys = {"978-1-60309-452-8", "978-1-60309-459-7", "978-1-60309-444-3", "978-1-60309-461-0"};
+    String[] keys =
+        {"978-1-60309-452-8", "978-1-60309-459-7", "978-1-60309-444-3", "978-1-60309-461-0"};
     String[] values = {"A Letter to Jo", "Lupus", "Red Panda and Moon Bear", "The Lab"};
     for (int i = 0; i < keys.length; i++) {
       map.put(keys[i], values[i]);
@@ -45,7 +46,8 @@ public class MapIntroduction2 {
     map.put("978-1-60309-453-5", "Why Did We Trust Him?");
     //Print whether there is an associated value with key 478-0-61159-424-8 or not
     //
-    System.out.println("Is there a value at key 478-0-61159-424-8? " + map.get("478-0-61159-424-8"));
+    System.out
+        .println("Is there a value at key 478-0-61159-424-8? " + map.get("478-0-61159-424-8"));
     //Print the value associated with key 978-1-60309-453-5
     System.out.println(map.get("978-1-60309-453-5"));
   }

@@ -23,6 +23,8 @@ public class Cohort {
   }
 
   public void info() {
-    System.out.println("The " + this.name + " cohort has " + this.students.size() + " students and " + this.mentors.size() + " mentors.");
+    System.out.println(
+        "The " + this.name + " cohort has " + this.students.size() + " students and " +
+            this.mentors.size() + " mentors.");
   }
 }

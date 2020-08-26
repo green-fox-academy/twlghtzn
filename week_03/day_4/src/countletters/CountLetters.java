@@ -14,6 +14,7 @@ public class CountLetters {
     System.out.println(dictionary.keySet().toString());
     System.out.println(dictionary.values().toString());
   }
+
   public static HashMap countLetters(String a) {
     HashMap dictionary = new HashMap();
     for (int i = 0; i < a.length(); i++) {
@@ -25,7 +26,6 @@ public class CountLetters {
     }
     return dictionary;
   }
-
 
 
 }

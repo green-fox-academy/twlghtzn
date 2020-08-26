@@ -35,7 +35,7 @@ public class DiceSet {
   } */
 
 
-      public static void main(String[] args) {
+  public static void main(String[] args) {
     // You have a `DiceSet` class which has a list for 6 dice
     // You can roll all of them with roll()
     // Check the current rolled numbers with getCurrent()

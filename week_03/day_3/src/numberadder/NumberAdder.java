@@ -7,6 +7,7 @@ public class NumberAdder {
 
     System.out.println(numberAdder(55));
   }
+
   public static int numberAdder(int n) {
     int sum = n;
     if ((n - 1) > 0) {

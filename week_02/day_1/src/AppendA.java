@@ -1,4 +1,5 @@
 import java.util.Arrays;
+
 // Ready
 public class AppendA {
   public static void main(String[] args) {

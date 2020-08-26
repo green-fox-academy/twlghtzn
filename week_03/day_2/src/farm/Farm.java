@@ -40,15 +40,18 @@ public class Farm {
     slaughter(farmAnimals);
 
     for (int i = 0; i < farmAnimals.size(); i++) {
-      System.out.println(farmAnimals.get(i).name + "/" + farmAnimals.get(i).hunger + "/" + farmAnimals.get(i).thirst);
+      System.out.println(farmAnimals.get(i).name + "/" + farmAnimals.get(i).hunger + "/" +
+          farmAnimals.get(i).thirst);
     }
   }
+
   public static void breed(int animalsCount, int animalsMax, List<Animal> animals) {
     if (animalsCount < animalsMax) {
       animals.add(new Animal("zebra"));
       System.out.println("New breed: zebra");
     }
   }
+
   public static void slaughter(List<Animal> animals) {
     int leastHungry = 50;
     for (int i = 0; i < animals.size(); i++) {
