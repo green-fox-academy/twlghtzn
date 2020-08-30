@@ -1,0 +1,53 @@
+.header {
+    font-size: 30px;
+    color: deepskyblue;
+    font-family: Tahoma, sans-serif;
+    text-decoration: none;
+}
+
+fieldset {
+    border:0;
+    border-bottom: 2px solid deepskyblue;
+    padding: 5px;
+}
+
+#more {
+    float: right;
+}
+
+#navbar {
+    padding: 20px;
+    height: 20px;
+}
+
+.navbaritem {
+    height: 15px;
+    background-color: red;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 4px;
+    font-family: Tahoma, sans-serif;
+    text-decoration: none;
+    color: white;
+}
+
+label[for="searchedText"] {
+    color: red;
+    font-family: Tahoma, sans-serif;
+    font-size: 20px;
+    display: block;
+}
+
+input[type="text"] {
+    display: inline-block;
+    height: 30px;
+    border: 2px solid red;
+    width: 200px;
+    border-radius: 4px;
+}
+
+button[type="button"] {
+    display: inline-block;
+    font-family: Tahoma, sans-serif;
+}
+

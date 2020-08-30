@@ -20,7 +20,7 @@ public class FizzBuzzWoofController {
 
   @GetMapping("web/fbw")
   public String fizzBuzzWoof(Model model) {
-    long counter = (long) atomicLong.incrementAndGet();
+    long counter = atomicLong.incrementAndGet();
     StringBuilder counterToDisplay = new StringBuilder();
     String fontToDisplay = "";
     if (counter % 3 == 0) {
@@ -40,7 +40,7 @@ public class FizzBuzzWoofController {
       fontToDisplay = fontSize3;
     } else {
       fontToDisplay = "18px";
-      counterToDisplay.append(String.valueOf(counter));
+      counterToDisplay.append(counter);
     }
     model.addAttribute("counter", counterToDisplay);
     model.addAttribute("font", fontToDisplay);
