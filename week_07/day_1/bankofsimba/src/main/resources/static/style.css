@@ -1,0 +1,7 @@
+#balance::after {
+    content: " Zebra, ";
+}
+
+#king {
+    background-color: goldenrod;
+}

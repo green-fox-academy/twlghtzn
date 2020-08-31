@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All BankAccounts</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<table>
+    <tr>
+        <th>Index</th>
+        <th>Name</th>
+        <th>Balance</th>
+        <th>Animal Type</th>
+        <th>Is it a King?</th>
+        <th>Good or Bad?</th>
+    </tr>
+    <tr th:each="bankAccount : ${bankAccounts}">
+        <td th:text="${bankAccountStat.index}"></td>
+        <td th:text="${bankAccount.name}"></td>
+        <td id="balance" th:text="${bankAccount.balance}"></td>
+        <td th:text="${bankAccount.animalType}"></td>
+        <td th:if="${bankAccount.isKing()}" id="king">King!</td>
+        <td th:unless="${bankAccount.isKing()}">Nope</td>
+        <td th:if="${bankAccount.isGoodGuy()}">Good</td>
+        <td th:unless="${bankAccount.isGoodGuy()}">Bad</td>
+    </tr>
+</table>
+<div>
+    <form th:action="@{/raise}" th:method="POST">
+        <label for="index">Index to raise:</label>
+        <input name="index" id="index" required/>
+        <button type="submit">Raise</button>
+    </form>
+</div>
+<div>
+    <form th:action="@{/add}" th:method="POST">
+        <label for="name">Name</label>
+        <input name="name" id="name" required>
+        <label for="type">Type</label>
+        <input name="type" id="type" required>
+        <button type="submit">Add new Bank Account</button>
+    </form>
+</div>
+</body>
+</html>

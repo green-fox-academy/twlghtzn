@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Simba</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<table>
+    <td th:text="${simba.name} + ', '"></td>
+    <td id="balance" th:text="${simba.balance}"></td>
+    <td th:text="${simba.animalType}"></td>
+</table>
+</body>
+</html>
