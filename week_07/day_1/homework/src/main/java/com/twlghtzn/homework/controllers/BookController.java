@@ -71,6 +71,7 @@ public class BookController {
 
   @RequestMapping(path = "/books/add", method = RequestMethod.POST)
   public String addBook(@ModelAttribute(name = "book") Book book) {
+    book.setId(books.size());
     books.add(book);
     return "redirect:/books";
   }
