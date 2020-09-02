@@ -28,7 +28,8 @@ public class BankAccountController {
         ("Pumba", 4000, "warthog", false, true));
   }
 
-  BankAccount simba = new BankAccount("Simba", 2000, "lion", true, true);
+  BankAccount simba = new BankAccount
+      ("Simba", 2000, "lion", true, true);
 
   @RequestMapping(path = "/show", method = RequestMethod.GET)
   public String showSimba(Model model) {
