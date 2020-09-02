@@ -1,7 +1,6 @@
 package com.twlghtzn.day3exercises;
 
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,13 +17,14 @@ public class UUController {
   }
 
   @RequestMapping(path = "/useful/colored", method = RequestMethod.GET)
-    public String showUsefulColored(Model model, UtilityService utilityService) {
+  public String showUsefulColored(Model model, UtilityService utilityService) {
     model.addAttribute("color", utilityService.randomColor());
     return "colored";
   }
 
-  @RequestMapping(path="/useful/email", method=RequestMethod.GET)
-  public String validateEmail(Model model, @RequestParam(name = "email", required = false) String email) {
+  @RequestMapping(path = "/useful/email", method = RequestMethod.GET)
+  public String validateEmail(Model model,
+                              @RequestParam(name = "email", required = false) String email) {
     model.addAttribute("emailAddress", email);
     model.addAttribute("emailIsValid", isEmailValid(email));
     return "email";
@@ -37,7 +37,7 @@ public class UUController {
     return false;
   }
 
-  @RequestMapping(path="/encoder", method= RequestMethod.GET)
+  @RequestMapping(path = "/encoder", method = RequestMethod.GET)
   public String encoder(Model model, UtilityService utilityService,
                         @RequestParam(name = "text", required = false) String textToEncode,
                         @RequestParam(name = "number", required = false) Integer number) {
@@ -50,7 +50,7 @@ public class UUController {
     return "encode";
   }
 
-  @RequestMapping(path="/decoder", method= RequestMethod.GET)
+  @RequestMapping(path = "/decoder", method = RequestMethod.GET)
   public String decoder(Model model, UtilityService utilityService,
                         @RequestParam(name = "text", required = false) String textToDecode,
                         @RequestParam(name = "number", required = false) Integer number) {
