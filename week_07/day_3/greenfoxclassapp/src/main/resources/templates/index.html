@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Greenfox Class</title>
+</head>
+<body>
+    <header th:text = "'Current user count: ' + ${#lists.size(students)}"></header>
+        <ul>
+            <li>
+                <a href="/gfa/list">List Of Students</a>
+            </li>
+            <li>
+                <a href="/gfa/add">Add student</a>
+            </li>
+            <li>
+                <a href="/gfa/check">Check if name is already in student's list</a>
+            </li>
+    </ul>
+</body>
+</html>
