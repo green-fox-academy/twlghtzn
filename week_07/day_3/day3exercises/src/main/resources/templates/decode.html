@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ceasar Decode</title>
+</head>
+<body>
+<p th:if="${isNotNull}" th:text="${codedText}"></p>
+<p th:unless="${isNotNull}">Enter text and number (text=&number=)</p>
+</body>
+</html>
