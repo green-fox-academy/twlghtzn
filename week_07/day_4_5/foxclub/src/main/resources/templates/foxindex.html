@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<ul>
+    <li>
+        <a href="">Information</a>
+    </li>
+    <li>
+        <a th:href = "@{'/nutstore/?name=' + ${name}}">Nutrition Store</a>
+    </li>
+    <li>
+        <a href="">Trick Center</a>
+    </li>
+    <li>
+        <a href="">Action History</a>
+    </li>
+</ul>
+<img src="https://raw.githubusercontent.com/green-fox-academy/teaching-materials/master/project/programmer-fox-club/assets/greenfox.png?token=AQDY7A252D3SQ3DPZPSIWRS7LH6F6" title="fox" width=200 height= 200 alt="Mr. Fox">
+<p th:text = "'This is Mr. ' + ${fox.getName()} + '. Currently living on ' + ${fox.getFood()} + ' and ' + ${fox.getDrink()} + '. He knows ' + ${fox.getLearnedTricks().size()} + ' tricks.'"></p>
+<h1>Known tricks</h1>
+<table>
+    <tr id="tricks" th:each = "trick : ${fox.getLearnedTricks()}">
+            <td th:text = "${trick}"></td>
+    </tr>
+</table>
+</body>
+</html>
