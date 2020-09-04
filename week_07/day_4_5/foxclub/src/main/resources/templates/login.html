@@ -11,5 +11,11 @@
         <input id="name" name="name" type="text" required autofocus>
         <button type="submit">Log in</button>
     </form>
+    <p th:if ="${warning == true}" th:style="'color: red;'">You have provided a name that has not been used before, add it as a new one!</p>
+    <form th:if ="${warning == true}" th:action="@{/addfox}" method="post">
+        <p>Register a new fox by giving it a name:</p>
+        <input id="newFox" name="newFox" type="text" required autofocus>
+        <button type="submit">Add new fox</button>
+    </form>
 </body>
 </html>

@@ -5,38 +5,28 @@
     <title>Nutrition Store</title>
 </head>
 <body>
-    <ul>
-        <li>
-            <a href="">Information</a>
-        </li>
-        <li>
-            <a href="">Nutrition Store</a>
-        </li>
-        <li>
-            <a href="">Trick Center</a>
-        </li>
-        <li>
-            <a href="">Action History</a>
-        </li>
-    </ul>
+<ul>
+    <li>
+        <a th:href = "@{'/?name=' + ${name}}">Information</a>
+    </li>
+    <li>
+        <a th:href = "@{'/nutstore/?name=' + ${name}}">Nutrition Store</a>
+    </li>
+    <li>
+        <a th:href="@{'/trickcenter/?name=' + ${name}}">Trick Center</a>
+    </li>
+    <li>
+        <a href="">Action History</a>
+    </li>
+</ul>
     <form th:action="@{'/nutstore/?name=' + ${name}}" th:method="post">
         <label for="food">Food</label>
         <select id="food" name ="food">
-            <option value="lasagna">lasagna</option>
-            <option value="soup">soup</option>
-            <option value="salad">salad</option>
-            <option value="steak">steak</option>
-            <option value="gyros">gyros</option>
-            <option value="ravioli">ravioli</option>
+            <option th:each="food : ${foods}" th:text="${food.getName()}" th:selected="${fox.getFood() == food.getName()}"></option>
         </select>
         <label for="drink">Drink</label>
         <select id="drink" name ="drink">
-            <option value="coffee">coffee</option>
-            <option value="soda">soda</option>
-            <option value="water">water</option>
-            <option value="milk">milk</option>
-            <option value="coke">coke</option>
-            <option value="tea">tea</option>
+            <option th:each="drink : ${drinks}" th:text="${drink.getName()}" th:selected = "${fox.getDrink() == drink.getName()}"></option>
         </select>
         <button type="submit">Change</button>
     </form>

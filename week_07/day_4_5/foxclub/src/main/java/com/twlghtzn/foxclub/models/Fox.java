@@ -8,17 +8,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class Fox {
   private String name;
-  private List<String> learnedTricks;
+  private final List<Trick> learnedTricks;
   private String food;
   private String drink;
 
   @Autowired
   public Fox() {
-    Things things = new Things();
     this.learnedTricks = new ArrayList<>();
-    this.learnedTricks.add("Relaxing");
-    this.food = things.getRandomFood();
-    this.drink = things.getRandomDrink();
   }
 
   public String getName() {
@@ -29,12 +25,12 @@ public class Fox {
     this.name = name;
   }
 
-  public List<String> getLearnedTricks() {
+  public List<Trick> getLearnedTricks() {
     return learnedTricks;
   }
 
-  public void addToLearnedTricks(String learnedTrick) {
-    this.learnedTricks.add(learnedTrick);
+  public void addToLearnedTricks(Trick newTrick) {
+    this.learnedTricks.add(newTrick);
   }
 
   public String getFood() {
