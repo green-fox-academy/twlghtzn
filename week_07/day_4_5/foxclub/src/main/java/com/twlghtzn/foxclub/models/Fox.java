@@ -11,10 +11,12 @@ public class Fox {
   private final List<Trick> learnedTricks;
   private String food;
   private String drink;
+  private final List<String> actionHistory;
 
   @Autowired
   public Fox() {
     this.learnedTricks = new ArrayList<>();
+    this.actionHistory = new ArrayList<>();
   }
 
   public String getName() {
@@ -47,5 +49,13 @@ public class Fox {
 
   public void setDrink(String drink) {
     this.drink = drink;
+  }
+
+  public List<String> getActionHistory() {
+    return actionHistory;
+  }
+
+  public void addAction(String action) {
+    actionHistory.add(0, action);
   }
 }

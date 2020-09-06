@@ -4,6 +4,8 @@ import com.twlghtzn.foxclub.models.Drink;
 import com.twlghtzn.foxclub.models.Food;
 import com.twlghtzn.foxclub.models.Fox;
 import com.twlghtzn.foxclub.models.Trick;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -11,9 +13,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ThingsService {
-  List<Food> foods;
-  List<Drink> drinks;
-  List<Trick> tricks;
+  private List<Food> foods;
+  private List<Drink> drinks;
+  private List<Trick> tricks;
 
   public ThingsService() {
     this.foods = new ArrayList<>();
@@ -56,8 +58,12 @@ public class ThingsService {
 
   public void setupNewFox(Fox fox) {
     fox.setFood(getRandomFood().getName());
+    fox.addAction(getTimeStamp() + " : Eats " + fox.getFood());
     fox.setDrink(getRandomDrink().getName());
-    fox.addToLearnedTricks(getRandomTrick());
+    fox.addAction(getTimeStamp() + " : Drinks " + fox.getDrink());
+    Trick trick = (getRandomTrick());
+    fox.addToLearnedTricks(trick);
+    fox.addAction(getTimeStamp() + " : Learned this trick: " + trick.getName());
   }
 
   public List<Food> getFoods() {
@@ -67,11 +73,6 @@ public class ThingsService {
   public List<Drink> getDrinks() {
     return drinks;
   }
-
-  public List<Trick> getTricks() {
-    return tricks;
-  }
-
 
   public Trick findTrick(String name) {
     for (Trick trick : tricks) {
@@ -90,5 +91,10 @@ public class ThingsService {
       }
     }
     return newTricks;
+  }
+
+  public String getTimeStamp() {
+    String ldt = String.valueOf(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
+    return ldt.replace('T', ' ');
   }
 }

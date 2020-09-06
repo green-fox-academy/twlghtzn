@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Action History</title>
+</head>
+<body>
+<div th:insert="fragments.html :: navbar"></div>
+<table>
+    <tr id = "history" th:each="action : ${fox.getActionHistory()}">
+        <td th:text="${action}"></td>
+    </tr>
+</table>
+</body>
+</html>

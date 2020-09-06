@@ -3,6 +3,8 @@ package com.twlghtzn.foxclub.controllers;
 import com.twlghtzn.foxclub.models.Fox;
 import com.twlghtzn.foxclub.services.FoxService;
 import com.twlghtzn.foxclub.services.ThingsService;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,12 +20,12 @@ public class MainController {
   public MainController(FoxService foxService, ThingsService thingsService) {
     this.thingsService = thingsService;
     this.foxService = foxService;
-    findLastAddedFox().setName("bela");
-    thingsService.setupNewFox(findLastAddedFox());
+    foxService.getFoxes().remove(findLastAddedFox());
   }
 
   @RequestMapping(path = "/", method = RequestMethod.GET)
-  public String showIndex(Model model, @RequestParam(name = "name", required = false) String name) {
+  public String showIndex(Model model,
+                          @RequestParam(name = "name", required = false) String name) {
     if (name == null) {
       return "index";
     }
@@ -34,7 +36,6 @@ public class MainController {
 
   @RequestMapping(path = "/login", method = RequestMethod.GET)
   public String showLoginPage(Model model,
-                              @RequestParam(name = "name", required = false) String name,
                               @RequestParam(name = "warning", required = false) String warning) {
     if (warning != null && warning.equals("foxnotinlist")) {
       model.addAttribute("warning", true);
@@ -58,6 +59,8 @@ public class MainController {
     if (newFox != null) {
       foxService.addFox();
       findLastAddedFox().setName(newFox);
+      findLastAddedFox().addAction(getTimeStamp() + " : New fox " +
+          findLastAddedFox().getName() + " was created");
       thingsService.setupNewFox(findLastAddedFox());
       model.addAttribute("fox", findLastAddedFox());
       model.addAttribute("name", newFox);
@@ -73,5 +76,10 @@ public class MainController {
 
   public Fox findLastAddedFox() {
     return foxService.getFoxes().get(0);
+  }
+
+  public String getTimeStamp() {
+    String ldt = String.valueOf(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));
+    return ldt.replace('T', ' ');
   }
 }

@@ -5,20 +5,7 @@
     <title>Nutrition Store</title>
 </head>
 <body>
-<ul>
-    <li>
-        <a th:href = "@{'/?name=' + ${name}}">Information</a>
-    </li>
-    <li>
-        <a th:href = "@{'/nutstore/?name=' + ${name}}">Nutrition Store</a>
-    </li>
-    <li>
-        <a th:href="@{'/trickcenter/?name=' + ${name}}">Trick Center</a>
-    </li>
-    <li>
-        <a href="">Action History</a>
-    </li>
-</ul>
+<div th:insert="fragments.html :: navbar"></div>
     <form th:action="@{'/nutstore/?name=' + ${name}}" th:method="post">
         <label for="food">Food</label>
         <select id="food" name ="food">

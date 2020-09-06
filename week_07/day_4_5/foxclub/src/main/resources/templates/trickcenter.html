@@ -5,20 +5,7 @@
     <title>Trick Center</title>
 </head>
 <body>
-<ul>
-    <li>
-        <a th:href = "@{'/?name=' + ${name}}">Information</a>
-    </li>
-    <li>
-        <a th:href = "@{'/nutstore/?name=' + ${name}}">Nutrition Store</a>
-    </li>
-    <li>
-        <a th:href="@{'/trickcenter/?name=' + ${name}}">Trick Center</a>
-    </li>
-    <li>
-        <a href="">Action History</a>
-    </li>
-</ul>
+<div th:insert="fragments.html :: navbar"></div>
 <form th:if="${newTricks.size() != 0}" th:action="@{'/trickcenter/?name=' + ${name}}" th:method="post">
     <label for="trick">New tricks</label>
     <select id="trick" name ="trick">
