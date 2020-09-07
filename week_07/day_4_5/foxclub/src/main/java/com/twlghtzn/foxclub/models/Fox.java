@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
 public class Fox {
   private String name;
   private final List<Trick> learnedTricks;
@@ -13,7 +12,7 @@ public class Fox {
   private String drink;
   private final List<String> actionHistory;
 
-  @Autowired
+
   public Fox() {
     this.learnedTricks = new ArrayList<>();
     this.actionHistory = new ArrayList<>();

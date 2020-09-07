@@ -1,6 +1,5 @@
 package com.twlghtzn.foxclub.controllers;
 
-import com.twlghtzn.foxclub.models.Fox;
 import com.twlghtzn.foxclub.services.FoxService;
 import com.twlghtzn.foxclub.services.ThingsService;
 import java.time.LocalDateTime;
@@ -29,7 +28,7 @@ public class ThingsController {
     if (name == null) {
       return "login";
     }
-    model.addAttribute("fox", findFox(name));
+    model.addAttribute("fox", foxService.findFox(name));
     model.addAttribute("name", name);
     model.addAttribute("foods", thingsService.getFoods());
     model.addAttribute("drinks", thingsService.getDrinks());
@@ -43,15 +42,15 @@ public class ThingsController {
     if (name == null) {
       return "login";
     }
-    String prevFood = findFox(name).getFood();
-    String prevDrink = findFox(name).getDrink();
-    findFox(name).setFood(food);
-    findFox(name).addAction(getTimeStamp() + " : Food has been changed from: " + prevFood + " to " +
-        findFox(name).getFood());
-    findFox(name).setDrink(drink);
-    findFox(name).addAction(
+    String prevFood = foxService.findFox(name).getFood();
+    String prevDrink = foxService.findFox(name).getDrink();
+    foxService.findFox(name).setFood(food);
+    foxService.findFox(name).addAction(getTimeStamp() + " : Food has been changed from: " + prevFood + " to " +
+        foxService.findFox(name).getFood());
+    foxService.findFox(name).setDrink(drink);
+    foxService.findFox(name).addAction(
         getTimeStamp() + " : Drink has been changed from: " + prevDrink + " to " +
-            findFox(name).getDrink());
+            foxService.findFox(name).getDrink());
     model.addAttribute("name", name);
     return "redirect:/?name=" + name;
   }
@@ -62,9 +61,9 @@ public class ThingsController {
     if (name == null) {
       return "login";
     }
-    model.addAttribute("fox", findFox(name));
+    model.addAttribute("fox", foxService.findFox(name));
     model.addAttribute("name", name);
-    model.addAttribute("newTricks", thingsService.getNewTricks(findFox(name)));
+    model.addAttribute("newTricks", thingsService.getNewTricks(foxService.findFox(name)));
     return "trickcenter";
   }
 
@@ -75,8 +74,8 @@ public class ThingsController {
     if (name == null) {
       return "login";
     }
-    findFox(name).addToLearnedTricks(thingsService.findTrick(trickName));
-    findFox(name).addAction(getTimeStamp() + " : Learned this trick: " + trickName);
+    foxService.findFox(name).addToLearnedTricks(thingsService.findTrick(trickName));
+    foxService.findFox(name).addAction(getTimeStamp() + " : Learned this trick: " + trickName);
     model.addAttribute("name", name);
     return "redirect:/?name=" + name;
   }
@@ -85,13 +84,13 @@ public class ThingsController {
   public String showActionHistory(Model model,
                                   @RequestParam(name = "name", required = false) String name) {
     model.addAttribute("name", name);
-    model.addAttribute("fox", findFox(name));
+    model.addAttribute("fox", foxService.findFox(name));
     return "actionhistory";
   }
 
-  public Fox findFox(String name) {
+ /* public Fox findFox(String name) {
     return foxService.findFox(name);
-  }
+  } */
 
   public String getTimeStamp() {
     String ldt = String.valueOf(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS));

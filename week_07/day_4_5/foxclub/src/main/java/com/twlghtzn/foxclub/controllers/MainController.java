@@ -20,7 +20,6 @@ public class MainController {
   public MainController(FoxService foxService, ThingsService thingsService) {
     this.thingsService = thingsService;
     this.foxService = foxService;
-    foxService.getFoxes().remove(findLastAddedFox());
   }
 
   @RequestMapping(path = "/", method = RequestMethod.GET)
