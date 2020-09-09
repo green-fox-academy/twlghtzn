@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" lang="en">
+<link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+<head>
+    <meta charset="UTF-8">
+    <title>Todos</title>
+</head>
+<body>
+<div class="container">
+
+    <header>TODOS FOR TODAY</header>
+    <form th:action="@{/todo}" method="post">
+        <div class ="form-group">
+            <label for="newTodo">New Todo:</label>
+            <input type="text" id="newTodo" name="newTodo" required autofocus/>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+    </form>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">ACTION</th>
+            <th scope="col">DONE</th>
+            <th scope="col">URGENT</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="todo : ${todos}">
+            <td  scope="row" th:text="${todo.getId()}"></td>
+            <td th:if="${todo.isComplete()}" style="text-decoration-line: line-through" th:text="${todo.getName()}"></td>
+            <td th:unless="${todo.isComplete()}" th:text="${todo.getName()}"></td>
+            <td>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input position-static" type="checkbox">
+                </div>
+            </td>
+            <td>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input position-static" type="checkbox">
+                </div>
+            </td>
+            <td>
+                <form th:unless="${todo.isComplete()}" th:action="@{'/complete?name=' + ${todo.getName()}}" method="post">
+                    <button type="submit">Complete</button>
+                </form>
+            </td>
+            <td>
+                <form th:action="@{'/delete?name=' + ${todo.getName()}}" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
+</div>
+</body>
+</html>
