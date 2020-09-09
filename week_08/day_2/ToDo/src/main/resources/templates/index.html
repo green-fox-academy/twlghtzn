@@ -43,12 +43,12 @@
                 </div>
             </td>
             <td>
-                <form th:unless="${todo.isComplete()}" th:action="@{'/complete?name=' + ${todo.getName()}}" method="post">
+                <form th:unless="${todo.isComplete()}" th:action="@{'/complete?id=' + ${todo.getId()}}" method="post">
                     <button type="submit">Complete</button>
                 </form>
             </td>
             <td>
-                <form th:action="@{'/delete?name=' + ${todo.getName()}}" method="post">
+                <form th:action="@{'/delete?id=' + ${todo.getId()}}" method="post">
                     <button type="submit">Delete</button>
                 </form>
             </td>

@@ -1,6 +1,8 @@
 package com.twlghtzn.todo.controllers;
 
+import com.twlghtzn.todo.models.Todo;
 import com.twlghtzn.todo.services.TodoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,8 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class TodoController {
-  TodoService todoService;
+  private TodoService todoService;
 
+  @Autowired
   public TodoController(TodoService todoService) {
     this.todoService = todoService;
   }
@@ -24,19 +27,19 @@ public class TodoController {
 
   @PostMapping(path = "/todo")
   public String addTodo(@RequestParam(name = "newTodo") String todoName) {
-    todoService.addTodo(todoName);
+    todoService.addTodo(new Todo(todoName));
     return "redirect:/todo";
   }
 
   @PostMapping(path = "/complete")
-  public String completeTodo(@RequestParam(name = "name") String name) {
-    todoService.completeTodo(name);
+  public String completeTodo(@RequestParam(name = "id") Integer id) {
+    todoService.completeTodo(id);
     return "redirect:/todo";
   }
 
   @PostMapping(path = "/delete")
-  public String deleteTodo(@RequestParam(name = "name") String name) {
-    todoService.deleteTodo(name);
+  public String deleteTodo(@RequestParam(name = "id") Integer id) {
+    todoService.deleteTodoById(id);
     return "redirect:/todo";
   }
 }
