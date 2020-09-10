@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" lang="en">
+<link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+<head>
+    <meta charset="UTF-8">
+    <title>Assignees</title>
+</head>
+<body>
+<div class="container">
+    <header>ASSIGNEES</header>
+    <form th:action="@{/assignees}" method="post">
+        <div class ="form-group">
+            <div>
+                <label for="name">New Assignee's name:</label>
+                <input type="text" id="name" name="name" required autofocus/>
+            </div>
+            <div class="form-inline">
+                <label for="email">New Assignee's name:</label>
+                <input type="text" id="email" name="email" required autofocus/>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+    </form>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">ASSIGNEE</th>
+        <th scope="col">EMAIL</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="assignee : ${assignees}">
+        <td  scope="row" th:text="${assignee.getAssId()}"></td>
+        <td  scope="row" th:text="${assignee.getName()}"></td>
+        <td  scope="row" th:text="${assignee.getEmail()}"></td>
+    </tr>
+    </tbody>
+</table>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
+</body>
+</html>
