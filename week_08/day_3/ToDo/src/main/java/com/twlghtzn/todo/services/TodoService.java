@@ -2,18 +2,13 @@ package com.twlghtzn.todo.services;
 
 import com.twlghtzn.todo.models.Todo;
 import com.twlghtzn.todo.repositories.TodoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+@RequiredArgsConstructor
 @Service
 public class TodoService {
-  private TodoRepository todoRepository;
-
-
-  @Autowired
-  public TodoService(TodoRepository todoRepository) {
-    this.todoRepository = todoRepository;
-  }
+  private final TodoRepository todoRepository;
 
   public Iterable<Todo> getTodos() {
     return todoRepository.findAll();
@@ -50,8 +45,4 @@ public class TodoService {
   public void deleteTodoById(Long id) {
     todoRepository.delete(todoRepository.findById(id).orElse(null));
   }
-
-/*  public Todo findTodoById(Long id) {
-    return todoRepository.findById(id).orElseThrow(NoSuchElementException::new);
-  } */
 }

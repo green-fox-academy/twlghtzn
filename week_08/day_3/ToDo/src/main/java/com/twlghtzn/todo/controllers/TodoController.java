@@ -4,7 +4,7 @@ import com.twlghtzn.todo.models.Todo;
 import com.twlghtzn.todo.repositories.AssigneeRepository;
 import com.twlghtzn.todo.repositories.TodoRepository;
 import com.twlghtzn.todo.services.TodoService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,18 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+@RequiredArgsConstructor
 @Controller
 public class TodoController {
-  private TodoService todoService;
-  private AssigneeRepository assigneeRepository;
-  private TodoRepository todoRepository;
-
-  @Autowired
-  public TodoController(TodoService todoService, AssigneeRepository assigneeRepository, TodoRepository todoRepository) {
-    this.todoService = todoService;
-    this.assigneeRepository = assigneeRepository;
-    this.todoRepository = todoRepository;
-  }
+  private final TodoService todoService;
+  private final AssigneeRepository assigneeRepository;
+  private final TodoRepository todoRepository;
 
   @RequestMapping(path = "/todo", method = RequestMethod.GET)
   public String showTodos(Model model) {

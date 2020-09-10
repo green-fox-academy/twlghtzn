@@ -7,7 +7,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@NoArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "assignees")
 public class Assignee {
@@ -21,37 +27,6 @@ public class Assignee {
 
   public Assignee(String name, String email) {
     this.name = name;
-    this.email = email;
-  }
-
-  public Assignee() {
-  }
-
-  public List<Todo> getTodos() {
-    return todos;
-  }
-
-  public void setTodos(List<Todo> todos) {
-    this.todos = todos;
-  }
-
-  public Long getAssId() {
-    return assId;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
     this.email = email;
   }
 }
