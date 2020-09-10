@@ -64,4 +64,16 @@ public class TodoController {
   public String list() {
     return "This is my first Todo";
   }
+
+  @RequestMapping(path = "/reverseDone")
+  public String reverseDone(Model model, @RequestParam(name="todoId") Long todoId) {
+    todoService.reverseDone(todoId);
+    return "redirect:/todo";
+  }
+
+  @RequestMapping(path = "/reverseUrgent")
+  public String reverseUrgent(Model model, @RequestParam(name="todoId") Long todoId) {
+    todoService.reverseUrgent(todoId);
+    return "redirect:/todo";
+  }
 }

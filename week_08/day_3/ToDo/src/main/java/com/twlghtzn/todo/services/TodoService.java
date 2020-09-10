@@ -2,7 +2,6 @@ package com.twlghtzn.todo.services;
 
 import com.twlghtzn.todo.models.Todo;
 import com.twlghtzn.todo.repositories.TodoRepository;
-import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +23,24 @@ public class TodoService {
     if (newTodo.getName() != null) {
       todoRepository.save(newTodo);
     }
+  }
+
+  public void reverseDone(Long id) {
+    if (todoRepository.findById(id).orElse(null).isComplete()) {
+      todoRepository.findById(id).orElse(null).setComplete(false);
+    } else {
+      todoRepository.findById(id).orElse(null).setComplete(true);
+    }
+    todoRepository.save(todoRepository.findById(id).orElse(null));
+  }
+
+  public void reverseUrgent(Long id) {
+    if (todoRepository.findById(id).orElse(null).isUrgent()) {
+      todoRepository.findById(id).orElse(null).setUrgent(false);
+    } else {
+      todoRepository.findById(id).orElse(null).setUrgent(true);
+    }
+    todoRepository.save(todoRepository.findById(id).orElse(null));
   }
 
   public void completeTodo(Long id) {
