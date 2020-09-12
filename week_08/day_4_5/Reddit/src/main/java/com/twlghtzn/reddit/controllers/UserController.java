@@ -33,7 +33,7 @@ public class UserController {
   public String authenticateUser(@RequestParam(name = "name") String name,
                                  @RequestParam(name = "password") String password) {
     if (userService.isUserRegistered(name, password)) {
-      User user = userService.findIdByNameAndPassword(name, password);
+      User user = userService.findUserByNameAndPassword(name, password);
       return "redirect:/?id=" + user.getId();
     } else {
       return "redirect:/login?info=newUser";
@@ -44,7 +44,7 @@ public class UserController {
   public String registerNewUser(@RequestParam(name = "name") String name,
                                 @RequestParam(name = "password") String password) {
     userService.addUser(name, password);
-    if (userService.findIdByNameAndPassword(name, password) == null) {
+    if (userService.findUserByNameAndPassword(name, password) == null) {
       return "redirect:/login?info=nameTaken";
     } else {
       return "redirect:/login?info=signUpOK";

@@ -28,7 +28,8 @@ public class PostService {
 
   public void addAPage() {
     pages.add(PageRequest.of(pages.size(), 10, Sort.by(
-        Sort.Order.desc("score"))));
+        Sort.Order.desc("score"),
+        Sort.Order.desc("id"))));
   }
 
   public List<Pageable> getPages() {

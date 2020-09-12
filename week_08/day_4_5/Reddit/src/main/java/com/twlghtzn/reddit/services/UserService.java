@@ -26,7 +26,7 @@ public class UserService {
   }
 
   public boolean isUserRegistered(String name, String password) {
-    if (findIdByNameAndPassword(name, password) == null) {
+    if (findUserByNameAndPassword(name, password) == null) {
       return false;
     }
     return true;
@@ -36,7 +36,7 @@ public class UserService {
     return userRepository.getByName(name) == null;
   }
 
-  public User findIdByNameAndPassword(String name, String password) {
+  public User findUserByNameAndPassword(String name, String password) {
     return userRepository.getByNameAndPassword(name, password);
   }
 }

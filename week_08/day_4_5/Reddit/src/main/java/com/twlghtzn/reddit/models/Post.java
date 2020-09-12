@@ -47,6 +47,7 @@ public class Post {
     usersVotedDown = new ArrayList<>();
     usersVotedUp = new ArrayList<>();
     this.title = title;
+    this.score = 0;
   }
 
   public String getTimeStamp(LocalDateTime date) {
