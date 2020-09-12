@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" lang="en">
+<link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body class="container">
+<header>Log in</header>
+<form th:action="@{/login}" method="post">
+    <label for="name">Username:</label>
+    <input type="text" name="name" id="name" required autofocus>
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" required autofocus>
+    <button type="submit" class="btn btn-primary">Log in</button>
+</form>
+<div>
+    <p th:if="${info == 'signUpOK'}" th:style="'color: green;'">Signed up successfully. Please log in.</p>
+</div>
+<div th:if="${info == 'newUser'} or ${info == 'nameTaken'}">
+    <p th:if="${info == 'newUser'}">You're not a registered user. Sign up:</p>
+    <p th:if="${info == 'nameTaken'}">This name is already in use. Please choose an other and sign up:</p>
+    <form th:action="@{/signup}" method="post">
+        <label for="newName">Username:</label>
+        <input type="text" name="name" id="newName" required autofocus>
+        <label for="newPassword">Password:</label>
+        <input type="password" name="password" id="newPassword" required autofocus>
+        <button type="submit" class="btn btn-primary">Sign up</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
+</body>
+</html>

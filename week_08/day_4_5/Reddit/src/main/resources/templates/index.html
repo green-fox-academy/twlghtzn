@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" lang="en">
+<link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+<head>
+    <meta charset="UTF-8">
+    <title>The Reddit</title>
+</head>
+<body class="container">
+<table>
+    <tr class="row">
+        <td>
+            <a th:if="${info != 'userPresent'}" href="/login">Log in</a>
+        </td>
+    </tr>
+    <tr th:if="${info == 'userPresent'}" class="row">
+        <td>
+            <p th:text="'Signed in as ' + ${user.getName()}" class="col"></p>
+        </td>
+        <td>
+            <a th:href="@{'/'}" class="col">Log out</a>
+        </td>
+        <td>
+            <a th:href="@{'/submit?id=' + ${id}}" class="col">Submit new post</a>
+        </td>
+    </tr>
+</table>
+<header>Trending posts</header>
+<table class="table table-hover">
+    <thead>
+    <tr class="row">
+        <th class="col-1" scope="col"></th>
+        <th class="col-1" scope="col"></th>
+        <th class="col-1" scope="col"></th>
+        <th class="col-6" scope="col"></th>
+        <th class="col-3" scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="post : ${posts}" class="row">
+        <td class="col-1" th:text="${post.getScore()}"></td>
+        <td class="col-1">
+            <form th:if="${info == 'userPresent'}" th:action="@{/voteup}" method="post">
+                <input name="postId" type="hidden" th:value="*{post.getId()}">
+                <input name="id" type="hidden" th:value="*{id}" required>
+                <input type="image" src="assets/img/hand-thumbs-up.svg" alt="" width="20" height="20" title="Up">
+            </form>
+        </td>
+        <td th:if="${info == 'userPresent'}" class="col-1">
+            <form th:action="@{/votedown}" method="post">
+                <input name="postId" type="hidden" th:value="*{post.getId()}">
+                <input name="id" type="hidden" th:value="*{id}" required>
+                <input type="image" src="assets/img/hand-thumbs-down.svg" alt="" width="20" height="20" title="Down">
+            </form>
+        </td>
+        <td class="col-5">
+            <a th:href="${post.getUrl()}" th:text="${post.getTitle()}"></a>
+        </td>
+        <td class="col-2" th:text="${post.getAuthorName()}"></td>
+        <td class="col-2" th:text="${post.getDate()}"></td>
+    </tr>
+    </tbody>
+</table>
+<table>
+    <tr class="row">
+            <td th:each="page : ${pages}">
+                <form class="col">
+                    <input name="id" type="hidden" th:value="*{id}" required>
+                    <input name="page" type="hidden" th:value="*{page.pageNumber}">
+                    <input th:if="${page.pageNumber} == ${actualPage}" class="btn btn-primary" type="submit" th:value="${page.pageNumber} + 1">
+                    <input th:unless="${page.pageNumber} == ${actualPage}" type="submit" th:value="${page.pageNumber} + 1">
+                </form>
+            </td>
+    </tr>
+</table>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
+</body>
+</html>
