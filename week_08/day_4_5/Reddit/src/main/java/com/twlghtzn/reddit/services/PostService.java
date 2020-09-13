@@ -23,7 +23,7 @@ public class PostService {
     this.postRepository = postRepository;
     this.userRepository = userRepository;
     pages = new ArrayList<>();
-    setPages();
+    setPageCount();
   }
 
   public void addAPage() {
@@ -45,6 +45,16 @@ public class PostService {
         Sort.Order.desc("score"))));
   }
 
+  public int getPostsCount() {
+    return (int) postRepository.count();
+  }
+
+  public void setPageCount() {
+    if (getPostsCount() % 10 == 0) {
+      addAPage();
+    }
+  }
+
   public Pageable getPageSetup(int page) {
     return pages.get(page);
   }
@@ -55,6 +65,7 @@ public class PostService {
 
   public void addPost(Post post) {
     postRepository.save(post);
+    setPageCount();
   }
 
   public List<Post> getAllPosts() {
