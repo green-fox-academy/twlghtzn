@@ -35,15 +35,15 @@
             <td>
                 <form th:action="@{/reverseDone}" method="post">
                     <input type="hidden" th:value="*{todo.getId()}" name="todoId" required>
-                    <input th:if="${todo.isComplete()}" type="image" src="/assets/img/bootstrap-icons-1.0.0/check.svg" alt="" width="32" height="32" title="Bootstrap">
-                    <input th:unless="${todo.isComplete()}" type="image" src="/assets/img/bootstrap-icons-1.0.0/x.svg" alt="" width="32" height="32" title="Bootstrap">
+                    <input th:if="${todo.isComplete()}" type="image" src="assets/img/bootstrap-icons-1.0.0/check.svg" alt="" width="32" height="32" title="Bootstrap">
+                    <input th:unless="${todo.isComplete()}" type="image" src="assets/img/bootstrap-icons-1.0.0/x.svg" alt="" width="32" height="32" title="Bootstrap">
                 </form>
             </td>
             <td>
                 <form th:action="@{/reverseUrgent}" method="post">
                     <input type="hidden" th:value="*{todo.getId()}" name="todoId" required>
-                    <input th:if="${todo.isUrgent()}" type="image" src="/assets/img/bootstrap-icons-1.0.0/check.svg" alt="" width="32" height="32" title="Bootstrap">
-                    <input th:unless="${todo.isUrgent()}" type="image" src="/assets/img/bootstrap-icons-1.0.0/x.svg" alt="" width="32" height="32" title="Bootstrap">
+                    <input th:if="${todo.isUrgent()}" type="image" src="assets/img/bootstrap-icons-1.0.0/check.svg" alt="" width="32" height="32" title="Bootstrap">
+                    <input th:unless="${todo.isUrgent()}" type="image" src="assets/img/bootstrap-icons-1.0.0/x.svg" alt="" width="32" height="32" title="Bootstrap">
                 </form>
             </td>
             <td>

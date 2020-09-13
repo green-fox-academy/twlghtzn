@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html xmlns:th = "http://www.thymeleaf.org" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Trick Center</title>
-</head>
-<body>
-<div th:insert="fragments.html :: navbar"></div>
-<form th:if="${newTricks.size() != 0}" th:action="@{'/trickcenter/?name=' + ${name}}" th:method="post">
-    <label for="trick">New tricks</label>
-    <select id="trick" name ="trick">
-        <option th:each="trick : ${newTricks}" th:text="${trick.getName()}"></option>
-    </select>
-    <button type="submit">Learn trick</button>
-</form>
-<p th:unless="${newTricks.size() != 0}">You've learned all the tricks!</p>
-</body>
-</html>
+    <!DOCTYPE html>
+    <html xmlns:th = "http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Trick Center</title>
+    </head>
+    <body>
+    <div th:insert="fragments.html :: navbar"></div>
+    <form th:if="${newTricks.size() != 0}" th:action="@{'/trickcenter/?name=' + ${name}}" th:method="post">
+        <label for="trick">New tricks</label>
+        <select id="trick" name ="trick">
+            <option th:each="trick : ${newTricks}" th:text="${trick.getName()}"></option>
+        </select>
+        <button type="submit">Learn trick</button>
+    </form>
+    <p th:unless="${newTricks.size() != 0}">You've learned all the tricks!</p>
+    </body>
+    </html>
