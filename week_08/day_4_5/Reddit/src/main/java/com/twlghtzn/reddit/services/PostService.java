@@ -81,9 +81,9 @@ public class PostService {
   }
 
   public void setPageCount() {
-   if (getPostsCount() % getPostCountPerPage() == 0) {
-     addAPage();
-   }
+    if (getPostsCount() % getPostCountPerPage() == 0) {
+      addAPage();
+    }
   }
 
   public Pageable getPageSetup(int page) {
