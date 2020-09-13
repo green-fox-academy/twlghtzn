@@ -25,6 +25,8 @@ public class UserController {
       model.addAttribute("info", "signUpOK");
     } else if (info != null && info.equals("nameTaken")) {
       model.addAttribute("info", "nameTaken");
+    } else if (info != null && info.equals("existingUser")) {
+      model.addAttribute("info", "existingUser");
     }
     return "login";
   }
@@ -33,8 +35,7 @@ public class UserController {
   public String authenticateUser(@RequestParam(name = "name") String name,
                                  @RequestParam(name = "password") String password) {
     if (userService.isUserRegistered(name, password)) {
-      User user = userService.findUserByNameAndPassword(name, password);
-      return "redirect:/?id=" + user.getId();
+      return "redirect:/?id=" + userService.findUserByNameAndPassword(name, password).getId();
     } else {
       return "redirect:/login?info=newUser";
     }
@@ -44,8 +45,11 @@ public class UserController {
   public String registerNewUser(@RequestParam(name = "name") String name,
                                 @RequestParam(name = "password") String password) {
     userService.addUser(name, password);
-    if (userService.findUserByNameAndPassword(name, password) == null) {
+    User user = userService.findUserByNameAndPassword(name, password);
+    if (user == null) {
       return "redirect:/login?info=nameTaken";
+    } else if (userService.isUserRegistered(name, password)) {
+      return "redirect:/login?info=existingUser";
     } else {
       return "redirect:/login?info=signUpOK";
     }

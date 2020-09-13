@@ -44,16 +44,18 @@ public class PostController {
 
   @PostMapping(path = "/voteup")
   public String votePostUp(@RequestParam(name = "postId") Long postId,
-                           @RequestParam(name = "id") Long id) {
+                           @RequestParam(name = "id") Long id,
+                           @RequestParam(name = "page") String page) {
     postService.voteUp(postId, id);
-    return "redirect:/?id=" + id;
+    return "redirect:/?id=" + id + "&page=" + page;
   }
 
   @PostMapping(path = "/votedown")
   public String votePostDown(@RequestParam(name = "postId") Long postId,
-                             @RequestParam(name = "id") Long id) {
+                             @RequestParam(name = "id") Long id,
+                             @RequestParam(name = "page") String page) {
     postService.voteDown(postId, id);
-    return "redirect:/?id=" + id;
+    return "redirect:/?id=" + id + "&page=" + page;
   }
 
   @RequestMapping(path = "/submit", method = RequestMethod.GET)

@@ -24,7 +24,19 @@
         </td>
     </tr>
 </table>
-<header>Trending posts</header>
+<table>
+    <tr class="row">
+        <td th:each="page : ${pages}">
+            <form class="col">
+                <input name="id" type="hidden" th:value="*{id}" required>
+                <input name="page" type="hidden" th:value="*{page.pageNumber}">
+                <input th:if="${page.pageNumber} == ${actualPage}" class="btn btn-primary" type="submit" th:value="${page.pageNumber} + 1">
+                <input th:unless="${page.pageNumber} == ${actualPage}" type="submit" th:value="${page.pageNumber} + 1">
+            </form>
+        </td>
+    </tr>
+</table>
+<header class="h2">Trending posts</header>
 <table class="table table-hover">
     <thead>
     <tr class="row">
@@ -40,6 +52,7 @@
         <td class="col-1" th:text="${post.getScore()}"></td>
         <td class="col-1">
             <form th:if="${info == 'userPresent'}" th:action="@{/voteup}" method="post">
+                <input name="page" type="hidden" th:value="*{actualPage}">
                 <input name="postId" type="hidden" th:value="*{post.getId()}">
                 <input name="id" type="hidden" th:value="*{id}" required>
                 <input type="image" src="assets/img/hand-thumbs-up.svg" alt="" width="20" height="20" title="Up">
@@ -47,6 +60,7 @@
         </td>
         <td th:if="${info == 'userPresent'}" class="col-1">
             <form th:action="@{/votedown}" method="post">
+                <input name="page" type="hidden" th:value="*{actualPage}">
                 <input name="postId" type="hidden" th:value="*{post.getId()}">
                 <input name="id" type="hidden" th:value="*{id}" required>
                 <input type="image" src="assets/img/hand-thumbs-down.svg" alt="" width="20" height="20" title="Down">
@@ -59,18 +73,6 @@
         <td class="col-2" th:text="${post.getDate()}"></td>
     </tr>
     </tbody>
-</table>
-<table>
-    <tr class="row">
-         <td th:each="page : ${pages}">
-              <form class="col">
-                   <input name="id" type="hidden" th:value="*{id}" required>
-                   <input name="page" type="hidden" th:value="*{page.pageNumber}">
-                   <input th:if="${page.pageNumber} == ${actualPage}" class="btn btn-primary" type="submit" th:value="${page.pageNumber} + 1">
-                   <input th:unless="${page.pageNumber} == ${actualPage}" type="submit" th:value="${page.pageNumber} + 1">
-              </form>
-         </td>
-    </tr>
 </table>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>

@@ -17,32 +17,29 @@ public class PostService {
   private final PostRepository postRepository;
   private final UserRepository userRepository;
   private List<Pageable> pages;
+  private final int postCountPerPage;
 
   public PostService(PostRepository postRepository,
                      UserRepository userRepository) {
     this.postRepository = postRepository;
     this.userRepository = userRepository;
     pages = new ArrayList<>();
-    setPageCount();
+    postCountPerPage = 5;
+    addAPage();
   }
 
   public void addAPage() {
-    pages.add(PageRequest.of(pages.size(), 10, Sort.by(
+    pages.add(PageRequest.of(pages.size(), getPostCountPerPage(), Sort.by(
         Sort.Order.desc("score"),
         Sort.Order.desc("id"))));
   }
 
-  public List<Pageable> getPages() {
-    return pages;
+  public int getPostCountPerPage() {
+    return postCountPerPage;
   }
 
-  public void setPages() {
-    pages.add(PageRequest.of(0, 5, Sort.by(
-        Sort.Order.desc("score"))));
-    pages.add(PageRequest.of(1, 5, Sort.by(
-        Sort.Order.desc("score"))));
-    pages.add(PageRequest.of(2, 5, Sort.by(
-        Sort.Order.desc("score"))));
+  public List<Pageable> getPages() {
+    return pages;
   }
 
   public int getPostsCount() {
@@ -50,9 +47,9 @@ public class PostService {
   }
 
   public void setPageCount() {
-    if (getPostsCount() % 10 == 0) {
-      addAPage();
-    }
+   if (getPostsCount() % getPostCountPerPage() == 0) {
+     addAPage();
+   }
   }
 
   public Pageable getPageSetup(int page) {
@@ -68,17 +65,12 @@ public class PostService {
     setPageCount();
   }
 
-  public List<Post> getAllPosts() {
-    return postRepository.findAll();
-  }
-
   public Post getPostById(Long id) {
     return postRepository.findById(id).orElse(null);
   }
 
   public void voteUp(Long postId, Long userId) {
-    if (getUpVoters(postId).contains(getUser(userId))) {
-    } else {
+    if (!getUpVoters(postId).contains(getUser(userId))) {
       votePost(postId, 1);
       getUpVoters(postId).add(getUser(userId));
       postRepository.save(getPostById(postId));
@@ -86,8 +78,7 @@ public class PostService {
   }
 
   public void voteDown(Long postId, Long userId) {
-    if (getDownVoters(postId).contains(getUser(userId))) {
-    } else {
+    if (!getDownVoters(postId).contains(getUser(userId))) {
       votePost(postId, -1);
       getDownVoters(postId).add(getUser(userId));
       postRepository.save(getPostById(postId));

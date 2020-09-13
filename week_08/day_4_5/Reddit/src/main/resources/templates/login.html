@@ -7,6 +7,10 @@
 </head>
 <body class="container">
 <header>Log in</header>
+<div>
+    <p th:if="${info == 'signUpOK'}" th:style="'color: green;'">Signed up successfully. Please log in:</p>
+    <p th:if="${info == 'existingUser'}">You're already signed up. Please log in:</p>
+</div>
 <form th:action="@{/login}" method="post">
     <label for="name">Username:</label>
     <input type="text" name="name" id="name" required autofocus>
@@ -14,9 +18,6 @@
     <input type="password" name="password" id="password" required autofocus>
     <button type="submit" class="btn btn-primary">Log in</button>
 </form>
-<div>
-    <p th:if="${info == 'signUpOK'}" th:style="'color: green;'">Signed up successfully. Please log in.</p>
-</div>
 <div th:if="${info == 'newUser'} or ${info == 'nameTaken'}">
     <p th:if="${info == 'newUser'}">You're not a registered user. Sign up:</p>
     <p th:if="${info == 'nameTaken'}">This name is already in use. Please choose an other and sign up:</p>
