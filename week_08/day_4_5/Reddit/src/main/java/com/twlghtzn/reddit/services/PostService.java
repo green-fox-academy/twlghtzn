@@ -80,12 +80,6 @@ public class PostService {
     return (int) postRepository.count();
   }
 
-  public void setPageCount() {
-    if (getPostsCount() % getPostCountPerPage() == 0) {
-      addAPage();
-    }
-  }
-
   public Pageable getPageSetup(int page) {
     return pages.get(page);
   }
