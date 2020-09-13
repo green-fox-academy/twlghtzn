@@ -5,6 +5,7 @@ import com.twlghtzn.reddit.models.User;
 import com.twlghtzn.reddit.repositories.PostRepository;
 import com.twlghtzn.reddit.repositories.UserRepository;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -17,15 +18,22 @@ public class PostService {
   private final PostRepository postRepository;
   private final UserRepository userRepository;
   private List<Pageable> pages;
-  private final int postCountPerPage;
+  private Integer postCountPerPage;
+  private HashMap<String, Integer> postCountsPerPage;
 
   public PostService(PostRepository postRepository,
                      UserRepository userRepository) {
     this.postRepository = postRepository;
     this.userRepository = userRepository;
     pages = new ArrayList<>();
-    postCountPerPage = 5;
+    postCountsPerPage = new HashMap<>();
+    postCountPerPage = 10;
     addAPage();
+    fillPostCountsPerPage();
+  }
+
+  public HashMap<String, Integer> getPostCountsPerPage() {
+    return postCountsPerPage;
   }
 
   public void addAPage() {
@@ -34,8 +42,34 @@ public class PostService {
         Sort.Order.desc("id"))));
   }
 
+  public void fillPostCountsPerPage() {
+    postCountsPerPage.put("3", 3);
+    postCountsPerPage.put("5", 5);
+    postCountsPerPage.put("10", 10);
+  }
+
   public int getPostCountPerPage() {
     return postCountPerPage;
+  }
+
+  public void reloadPages(int count) {
+    int postCount = getPostsCount();
+    pages.clear();
+    if (postCount / count >= 1) {
+      for (int i = 0; i < (postCount / count); i++) {
+        addAPage();
+      }
+      if (postCount % count > 0) {
+        addAPage();
+      }
+    } else {
+      addAPage();
+    }
+  }
+
+  public void setPostCountPerPage(int count) {
+    postCountPerPage = count;
+    reloadPages(count);
   }
 
   public List<Pageable> getPages() {
@@ -62,7 +96,7 @@ public class PostService {
 
   public void addPost(Post post) {
     postRepository.save(post);
-    setPageCount();
+    reloadPages(getPostCountPerPage());
   }
 
   public Post getPostById(Long id) {

@@ -2,7 +2,6 @@ package com.twlghtzn.reddit.services;
 
 import com.twlghtzn.reddit.models.User;
 import com.twlghtzn.reddit.repositories.UserRepository;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

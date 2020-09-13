@@ -34,6 +34,8 @@ public class PostController {
       model.addAttribute("actualPage", 0);
     }
     model.addAttribute("pages", postService.getPages());
+    model.addAttribute("postCountsPerPage", postService.getPostCountsPerPage());
+    model.addAttribute("actualPostsPerPageCount", postService.getPostCountPerPage());
     return "index";
   }
 
@@ -72,5 +74,17 @@ public class PostController {
     return "redirect:/?id=" + id;
   }
 
-
+  @PostMapping(path="/resize")
+  public String resizePage(@RequestParam(name="id", required = false) Long id,
+                           @RequestParam(name = "postCount") String postCount) {
+    String pushedId = "";
+    if (id == null) {
+      pushedId = "";
+    } else {
+      pushedId = String.valueOf(id);
+    }
+    int count = Integer.parseInt(postCount);
+    postService.setPostCountPerPage(count);
+    return "redirect:/?id=" + pushedId;
+  }
 }

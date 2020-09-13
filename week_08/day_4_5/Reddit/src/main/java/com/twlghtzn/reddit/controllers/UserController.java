@@ -1,6 +1,5 @@
 package com.twlghtzn.reddit.controllers;
 
-import com.twlghtzn.reddit.models.User;
 import com.twlghtzn.reddit.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -44,14 +43,13 @@ public class UserController {
   @PostMapping(path = "/signup")
   public String registerNewUser(@RequestParam(name = "name") String name,
                                 @RequestParam(name = "password") String password) {
-    userService.addUser(name, password);
-    User user = userService.findUserByNameAndPassword(name, password);
-    if (user == null) {
-      return "redirect:/login?info=nameTaken";
-    } else if (userService.isUserRegistered(name, password)) {
+    if (userService.isUserRegistered(name, password)) {
       return "redirect:/login?info=existingUser";
-    } else {
-      return "redirect:/login?info=signUpOK";
+    } else if (userService.isNewUserNameAvailable(name)) {
+      userService.addUser(name, password);
+    } else if (!userService.isNewUserNameAvailable(name)) {
+      return "redirect:/login?info=nameTaken";
     }
+      return "redirect:/login?info=signUpOK";
   }
 }

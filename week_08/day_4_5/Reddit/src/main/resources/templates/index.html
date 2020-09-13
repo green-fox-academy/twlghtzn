@@ -9,33 +9,54 @@
 <table>
     <tr class="row">
         <td>
-            <a th:if="${info != 'userPresent'}" href="/login">Log in</a>
-        </td>
-    </tr>
-    <tr th:if="${info == 'userPresent'}" class="row">
-        <td>
-            <p th:text="'Signed in as ' + ${user.getName()}" class="col"></p>
+            <a th:if="${info == 'userPresent'}" th:href="@{'/'}" class="col">Log out</a>
+            <a th:unless="${info == 'userPresent'}" href="/login">Log in</a>
         </td>
         <td>
-            <a th:href="@{'/'}" class="col">Log out</a>
+            <p th:if="${info == 'userPresent'}" th:text="'Signed in as ' + ${user.getName()}" class="col"></p>
         </td>
         <td>
-            <a th:href="@{'/submit?id=' + ${id}}" class="col">Submit new post</a>
+            <a th:if="${info == 'userPresent'}" th:href="@{'/submit?id=' + ${id}}" class="col">Submit new post</a>
         </td>
     </tr>
 </table>
-<table>
-    <tr class="row">
-        <td th:each="page : ${pages}">
-            <form class="col">
-                <input name="id" type="hidden" th:value="*{id}" required>
-                <input name="page" type="hidden" th:value="*{page.pageNumber}">
-                <input th:if="${page.pageNumber} == ${actualPage}" class="btn btn-primary" type="submit" th:value="${page.pageNumber} + 1">
-                <input th:unless="${page.pageNumber} == ${actualPage}" type="submit" th:value="${page.pageNumber} + 1">
-            </form>
-        </td>
-    </tr>
-</table>
+<div class="row">
+    <div class="col-3">
+        <div class="btn-toolbar" role="toolbar">
+            <div th:each="page : ${pages}" class="btn-group mr-2" role="group">
+                <form>
+                    <input name="id" type="hidden" th:value="*{id}" required>
+                    <input name="page" type="hidden" th:value="*{page.pageNumber}">
+                    <input th:if="${page.pageNumber} == ${actualPage}" class="btn btn-primary" type="submit"
+                           th:value="${page.pageNumber} + 1">
+                    <input th:unless="${page.pageNumber} == ${actualPage}" class="btn btn-secondary" type="submit"
+                           th:value="${page.pageNumber} + 1">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-2">
+        <div>
+            <p>Posts per page: </p>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="btn-toolbar" role="toolbar">
+            <div th:each="postCount : ${postCountsPerPage}" class="btn-group mr-2" role="group">
+                <form th:action="@{/resize}" method="post">
+                    <input name="id" type="hidden" th:value="*{id}">
+                    <input name="postCount" type="hidden" th:value="*{postCount.getValue()}">
+                    <input th:disabled="${posts.size() == 0}" th:if="${actualPostsPerPageCount} == ${postCount.getValue()}" type="submit"
+                           class="btn btn-primary"
+                           th:value="${postCount.getKey()}">
+                    <input th:disabled="${posts.size() == 0}" th:unless="${actualPostsPerPageCount} == ${postCount.getValue()}" type="submit"
+                           class="btn btn-secondary"
+                           th:value="${postCount.getKey()}">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <header class="h2">Trending posts</header>
 <table class="table table-hover">
     <thead>
