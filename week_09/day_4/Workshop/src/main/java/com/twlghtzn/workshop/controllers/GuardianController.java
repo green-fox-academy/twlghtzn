@@ -1,5 +1,6 @@
 package com.twlghtzn.workshop.controllers;
 
+import com.twlghtzn.workshop.services.ShipService;
 import com.twlghtzn.workshop.services.WorkshopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
