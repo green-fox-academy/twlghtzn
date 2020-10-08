@@ -165,4 +165,3 @@ hs_err_pid*
 
 # End of https://www.toptal.com/developers/gitignore/api/java,intellij
 week_02/day_3/my-file.txt
-/src/main/java/com/twlghtzn/week00project/services/JWTService.java
