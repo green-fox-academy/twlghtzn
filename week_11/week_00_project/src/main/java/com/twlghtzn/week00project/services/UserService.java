@@ -3,6 +3,7 @@ package com.twlghtzn.week00project.services;
 import com.twlghtzn.week00project.models.User;
 import com.twlghtzn.week00project.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,6 +20,6 @@ public class UserService {
   }
 
   public boolean areUserCredentialsValid(String userName, String password) {
-    return userRepository.findUserByUserNameAndPassword(userName, password).isPresent();
+    return BCrypt.checkpw(password, userRepository.findUserByUserName(userName).getPassword());
   }
 }

@@ -8,6 +8,7 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 @Table(name = "users")
 @Entity
@@ -24,7 +25,6 @@ public class User {
 
   public User(String userName, String password) {
     this.userName = userName;
-    this.password = password;
+    this.password = BCrypt.hashpw(password, BCrypt.gensalt());
   }
-
 }

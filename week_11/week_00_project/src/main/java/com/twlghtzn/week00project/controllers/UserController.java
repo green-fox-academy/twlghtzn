@@ -33,9 +33,15 @@ public class UserController {
   }
 
   @GetMapping("/login")
-  public ResponseEntity<?> login(@RequestHeader("authorization") String jwt) {
-    String realJwt = jwt.substring(7);
-    String userName = jwtService.readUserNameFromJWT(realJwt);
-    return ResponseEntity.status(HttpStatus.OK).body("Hello, " + userName);
+  public ResponseEntity<?> login(@RequestHeader("authorization") String jwt,
+                                 @RequestParam("userName") String userName,
+                                 @RequestParam("password") String password) {
+    if (userService.areUserCredentialsValid(userName, password)) {
+      String realJwt = jwt.substring(7);
+      String userNameToGreet = jwtService.readUserNameFromJWT(realJwt);
+      return ResponseEntity.status(HttpStatus.OK).body("Hello, " + userNameToGreet);
+    } else {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("wut");
+    }
   }
 }
