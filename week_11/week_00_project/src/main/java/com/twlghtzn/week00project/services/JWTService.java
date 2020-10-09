@@ -4,6 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.SignatureException;
 import java.security.Key;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,10 +34,15 @@ public class JWTService {
     return builder.compact();
   }
 
-  public Claims decodeJWT(String jwt) {
+  public Claims decodeJWT(String jwt) throws SignatureException {
     return Jwts.parser()
         .setSigningKey(DatatypeConverter.parseBase64Binary(System.getenv("TMDB_API_KEY")))
         .parseClaimsJws(jwt).getBody();
+  }
+
+  public boolean isBearerTokenValid(String jwt) {
+    String realJwt = jwt.substring(7);
+    return decodeJWT(realJwt) != null;
   }
 
   public String readUserNameFromJWT(String jwt) {
