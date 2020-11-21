@@ -2,27 +2,21 @@ import java.util.Scanner;
 
 public class DrawPyramid {
   public static void main(String[] args) {
-    // Write a program that reads a number from the standard input, then draws a
-    // pyramid like this:
-    //
-    //
-    //    *
-    //   ***
-    //  *****
-    // *******
-    //
-    // The pyramid should have as many lines as the number was
 
     Scanner scanner = new Scanner(System.in);
-    int number = scanner.nextInt();
-    String asterisk = "*";
-    String space = "";
-    for (int i = 0; i < number; i++) {
-      for (int j = (number / 2) - i; j > 0; j--) {
-        space = space + " ";
+    int num = scanner.nextInt();
+
+    for (int i = 1; i < num + 1; i++) {
+      for (int j = num - i; j > 0; j--) {
+        System.out.printf(" ");
       }
-      System.out.println(space + asterisk);
-      asterisk = asterisk + "*";
+      for (int k = 0; k < i; k++) {
+        System.out.printf("*");
+      }
+      for (int m = 0; m < i - 1; m++) {
+        System.out.printf("*");
+      }
+      System.out.printf("%n");
     }
   }
 }

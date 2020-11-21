@@ -1,8 +1,7 @@
 import java.util.Scanner;
 
-public class DrawDiagonal {
+public class DrawSquare {
   public static void main(String[] args) {
-
     Scanner scanner = new Scanner(System.in);
     int num = scanner.nextInt();
 
@@ -14,11 +13,7 @@ public class DrawDiagonal {
         System.out.printf("%n");
       } else {
         System.out.print("%");
-        for (int m = 0; m < i - 1; m++) {
-          System.out.print(" ");
-        }
-        System.out.print("%");
-        for (int n = num - 2 - i; n > 0; n--) {
+        for (int k = 0; k < num -2; k++) {
           System.out.print(" ");
         }
         System.out.print("%");

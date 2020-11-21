@@ -2,27 +2,22 @@ import java.util.Scanner;
 
 public class GuessTheNumber {
   public static void main(String[] args) {
+
+    int numberToGuess = 9;
     Scanner scanner = new Scanner(System.in);
-    int numberToGuess = scanner.nextInt();
+    System.out.println("Your guess:");
+    int num = scanner.nextInt();
 
-    System.out.println("Your guess?");
-    int guess = scanner.nextInt();
-
-    while (numberToGuess != guess) {
-      if (numberToGuess > guess) {
+    while (num != numberToGuess) {
+      if (num < numberToGuess) {
         System.out.println("The stored number is higher");
-        System.out.println("Your guess?");
-        guess = scanner.nextInt();
-      } else if (numberToGuess < guess) {
+      } else {
         System.out.println("The stored number is lower");
-        System.out.println("Your guess?");
-        guess = scanner.nextInt();
       }
+      System.out.println("Your guess:");
+      num = scanner.nextInt();
     }
-
-    if (numberToGuess == guess) {
-      System.out.println("You found the number: " + numberToGuess);
-    }
+    System.out.println("You found the number: " + num);
   }
 }
 
