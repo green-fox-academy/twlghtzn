@@ -12,18 +12,20 @@ public class DiagonalMatrix {
     //
     // - Print this two dimensional array to the output
 
-    int[][] anArray = new int[4][4];
-    for (int i = 0; i < anArray.length; i++) {
-      for (int j = 0; j < anArray.length; j++) {
-        if (i == j) {
-          anArray[i][j] = 1;
+    int length = 4;
+    int[][] matrix = new int[length][length];
+
+    for (int i = 0; i < length; i ++) {
+      for (int j = 0; j < length; j++) {
+        if (j == i) {
+          matrix[i][j] = 1;
+          System.out.print(matrix[i][j] + " ");
         } else {
-          anArray[i][j] = 0;
+          matrix[i][j] = 0;
+          System.out.print(matrix[i][j] + " ");
         }
       }
-    }
-    for (int[] ints : anArray) {
-      System.out.println(Arrays.toString(ints));
+      System.out.printf("%n");
     }
   }
 }

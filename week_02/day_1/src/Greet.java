@@ -1,5 +1,6 @@
 public class Greet {
   public static void main(String[] args) {
+
     //  From now on, create the usual class wrapper
     //  and main method on your own.
 

@@ -1,5 +1,6 @@
 public class AppendAFunc {
   public static void main(String[] args) {
+
     //  Create the usual class wrapper
     //  and main method on your own.
 
@@ -10,13 +11,10 @@ public class AppendAFunc {
     // - Print the result of `appendAFunc(typo)`
 
     String typo = "Chinchill";
-    String typoFixed = appendAFunc(typo);
-    System.out.println(typoFixed);
-
+    System.out.println(appendAFunc(typo));
   }
 
-  public static String appendAFunc(String a) {
-    String correctString = a + "a";
-    return correctString;
+  public static String appendAFunc(String typo) {
+    return typo + "a";
   }
 }

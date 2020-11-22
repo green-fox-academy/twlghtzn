@@ -1,6 +1,6 @@
 public class CompareLength {
   public static void main(String[] args) {
-    // Ready
+
     // - Create an array variable named `firstArrayOfNumbers`
     //   with the following content: `[1, 2, 3]`
     // - Create an array variable named `secondArrayOfNumbers`
@@ -13,8 +13,6 @@ public class CompareLength {
 
     if (secondArrayOfNumbers.length > firstArrayOfNumbers.length) {
       System.out.println("secondArrayOfNumbers is longer");
-    } else {
-      System.out.println("secondArrayOfNumbers is not longer");
     }
   }
 }

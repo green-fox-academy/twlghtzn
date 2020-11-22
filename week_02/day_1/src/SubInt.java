@@ -2,34 +2,31 @@ import java.util.Arrays;
 
 public class SubInt {
   public static void main(String[] args) {
+
     //  Create a function that takes a number and an array of integers as a parameter
     //  Returns the indices of the integers in the array of which the first number is a part of
     //  Or returns an empty array if the number is not part of any of the integers in the array
 
-    int a = 2;
-    int[] anArray = {21, 33, 42, 5, 67, 83, 24};
-    int[] returnArray = searchTheArray(a, anArray);
-    System.out.println(Arrays.toString(returnArray));
+    System.out.println(Arrays.toString(subInt(1, new int[] {1, 11, 34, 52, 61})));
+    System.out.println(Arrays.toString(subInt(9, new int[] {1, 11, 34, 52, 61})));
   }
 
-  public static int[] searchTheArray(int a, int[] anArray) {
-    String b = Integer.toString(a);
+  private static int[] subInt(int number, int[] numbers) {
     int counter = 0;
-    int[] c = new int[0];
-    for (int i = 0; i < anArray.length; i++) {
-      if (Integer.toString(anArray[i]).contains(b)) {
+    for (int element : numbers) {
+      if (String.valueOf(element).contains(String.valueOf(number))) {
         counter++;
       }
     }
-    c = new int[counter];
-    int indicesCounter = 0;
-    for (int i = 0; i < anArray.length; i++) {
-      if (Integer.toString(anArray[i]).contains(b)) {
-        c[indicesCounter] = i;
-        indicesCounter++;
+    int[] indexes = new int[counter];
+    int indexCounter = 0;
+    for (int i = 0; i < numbers.length; i++) {
+      if (String.valueOf(numbers[i]).contains(String.valueOf(number))) {
+        indexes[indexCounter] = i;
+        indexCounter++;
       }
     }
-    return c;
+    return indexes;
   }
 }
 

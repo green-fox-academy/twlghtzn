@@ -1,6 +1,6 @@
 public class Colors {
   public static void main(String[] args) {
-    // Ready
+
     // - Create a two dimensional array
     //   which can contain the different shades of specified colors
     // - In `colors[0]` store the shades of green:
@@ -10,7 +10,7 @@ public class Colors {
     // - In `colors[2]` store the shades of pink:
     //   `"orchid", "violet", "pink", "hot pink"`
 
-    String[][] twoDimArray = {
+    String[][] colors = {
         {"lime", "forest green", "olive", "pale green", "spring green"},
         {"orange red", "red", "tomato"},
         {"orchid", "violet", "pink", "hot pink"}};
