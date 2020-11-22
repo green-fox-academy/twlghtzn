@@ -1,5 +1,6 @@
-public class Reverse {
+public class ReverseString {
   public static void main(String... args) {
+
     String toBeReversed =
         ".eslaf eb t'ndluow ecnetnes siht ,dehctiws erew eslaf dna eurt fo sgninaem eht fI";
 
@@ -7,11 +8,22 @@ public class Reverse {
     // Use it on this reversed string to check it!
     // Try to solve this using charAt() first, and optionally anything else after.
 
-//    System.out.println(reverse(toBeReversed));
-    String reversed = "";
+    System.out.println(reverse1(toBeReversed));
+    System.out.println(reverse2(toBeReversed));
+  }
+
+  public static String reverse1(String toBeReversed) {
+    StringBuilder reversed = new StringBuilder();
     for (int i = toBeReversed.length() - 1; i > -1; i--) {
-      reversed = reversed + toBeReversed.charAt(i);
+      reversed.append(toBeReversed.charAt(i));
     }
-    System.out.println(reversed);
+    return reversed.toString();
+  }
+
+  public static String reverse2(String toBeReversed) {
+    StringBuilder reversed = new StringBuilder();
+    reversed.append(toBeReversed);
+    reversed.reverse();
+    return reversed.toString();
   }
 }

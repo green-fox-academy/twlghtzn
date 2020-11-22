@@ -3,6 +3,7 @@ import java.util.Map;
 
 public class MapIntroduction1 {
   public static void main(String[] args) {
+
     // Create an empty map where the keys are integers and the values are characters
     Map<Integer, String> map = new HashMap<>();
     //

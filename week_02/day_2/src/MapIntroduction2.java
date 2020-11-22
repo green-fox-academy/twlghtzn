@@ -3,6 +3,7 @@ import java.util.Map;
 
 public class MapIntroduction2 {
   public static void main(String[] args) {
+
     // Create a map where the keys are strings and the values are strings with the following initial values
     //
     //Key	Value
@@ -10,6 +11,7 @@ public class MapIntroduction2 {
     //978-1-60309-459-7	Lupus
     //978-1-60309-444-3	Red Panda and Moon Bear
     //978-1-60309-461-0	The Lab
+
     Map<String, String> map = new HashMap<>();
     String[] keys =
         {"978-1-60309-452-8", "978-1-60309-459-7", "978-1-60309-444-3", "978-1-60309-461-0"};

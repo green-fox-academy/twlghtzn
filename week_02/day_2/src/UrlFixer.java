@@ -1,5 +1,6 @@
 public class UrlFixer {
   public static void main(String... args) {
+
     String url = "https//www.reddit.com/r/nevertellmethebots";
 
     // Accidentally I got the wrong URL for a funny subreddit. It's probably "odds" and not "bots"
@@ -13,5 +14,4 @@ public class UrlFixer {
   public static String addChar(String str, char ch, int position) {
     return str.substring(0, position) + ch + str.substring(position);
   }
-
 }

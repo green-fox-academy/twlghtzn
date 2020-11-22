@@ -1,15 +1,17 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class ListIntroduction2 {
   public static void main(String[] args) {
+
     // Create a list ('List A') which contains the following values
     //Apple, Avocado, Blueberries, Durian, Lychee
-    ArrayList<String> ListA = new ArrayList<>();
+    List<String> ListA = new ArrayList<>();
     String[] toListA = {"Apple", "Avocado", "Blueberries", "Durian", "Lychee"};
     Collections.addAll(ListA, toListA);
     //Create a new list ('List B') with the values of List A
-    ArrayList<String> ListB = new ArrayList<>();
+    List<String> ListB = new ArrayList<>();
     ListB.addAll(0, ListA);
     //Print out whether List A contains Durian or not
     System.out.println(ListA.contains("Durian"));
@@ -28,8 +30,7 @@ public class ListIntroduction2 {
     //Get the index of Durian from List B
     System.out.println(ListB.indexOf("Durian"));
     //Add Passion Fruit and Pomelo to List B in a single statement
-    String[] toListB = {"Passion Fruit", "Pomelo"};
-    Collections.addAll(ListB, toListB);
+    Collections.addAll(ListB, "Passion Fruit", "Pomelo");
     //Print out the 3rd element from List A
     System.out.println(ListA.get(2));
   }

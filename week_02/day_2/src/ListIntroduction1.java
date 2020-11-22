@@ -1,9 +1,11 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListIntroduction1 {
   public static void main(String[] args) {
+
     // Create an empty list which will contain names (strings)
-    ArrayList<String> introduction = new ArrayList<>();
+    List<String> introduction = new ArrayList<>();
     // Print out the number of elements in the list
     System.out.println(introduction);
     // Add William to the list
